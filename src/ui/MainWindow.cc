@@ -240,9 +240,7 @@ MainWindow::MainWindow()
     if (!qgcApp()->runningUnitTests()) {
         _ui.actionStatusBar->setChecked(_showStatusBar);
         showStatusBarCallback(_showStatusBar);
-#ifdef __mobile__
         menuBar()->hide();
-#endif
         show();
 #ifdef __macos__
         // TODO HACK
