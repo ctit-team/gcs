@@ -94,12 +94,6 @@ public slots:
     /** @brief Update the window name */
     void configureWindowName();
 
-protected slots:
-    /**
-     * @brief Enable/Disable Status Bar
-     */
-    void showStatusBarCallback(bool checked);
-
 signals:
     void initStatusChanged(const QString& message, int alignment, const QColor &color);
     /** Emitted when any value changes from any source */
@@ -184,7 +178,6 @@ private:
 
     MAVLinkDecoder*         _mavlinkDecoder;
     bool                    _lowPowerMode;           ///< If enabled, QGC reduces the update rates of all widgets
-    bool                    _showStatusBar;
     QVBoxLayout*            _centralLayout;
     Ui::MainWindow          _ui;
 

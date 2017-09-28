@@ -110,7 +110,6 @@ void MainWindow::deleteInstance(void)
 MainWindow::MainWindow()
     : _mavlinkDecoder       (NULL)
     , _lowPowerMode         (false)
-    , _showStatusBar        (false)
     , _mainQmlWidgetHolder  (NULL)
     , _forceClose           (false)
 {
@@ -231,32 +230,14 @@ MainWindow::MainWindow()
     }
 #endif
 
-    connect(_ui.actionStatusBar,  &QAction::triggered, this, &MainWindow::showStatusBarCallback);
-
     connect(&windowNameUpdateTimer, &QTimer::timeout, this, &MainWindow::configureWindowName);
     windowNameUpdateTimer.start(15000);
     emit initStatusChanged(tr("Done"), Qt::AlignLeft | Qt::AlignBottom, QColor(62, 93, 141));
 
     if (!qgcApp()->runningUnitTests()) {
-        _ui.actionStatusBar->setChecked(_showStatusBar);
-        showStatusBarCallback(_showStatusBar);
+        statusBar()->hide();
         menuBar()->hide();
         show();
-#ifdef __macos__
-        // TODO HACK
-        // This is a really ugly hack. For whatever reason, by having a QQuickWidget inside a
-        // QDockWidget (MainToolBar above), the main menu is not shown when the app first
-        // starts. I looked everywhere and I could not find a solution. What I did notice was
-        // that if any other window gets focus, the menu comes up when you come back to QGC.
-        // That is, if you were to click on another window and then back to QGC, the menus
-        // would appear. This hack below creates a 0x0 dialog and immediately closes it.
-        // That works around the issue and it will do until I find the root of the problem.
-        QDialog qd(this);
-        qd.show();
-        qd.raise();
-        qd.activateWindow();
-        qd.close();
-#endif
     }
 
 #ifndef __mobile__
@@ -387,12 +368,6 @@ void MainWindow::_showDockWidgetAction(bool show)
 }
 #endif
 
-void MainWindow::showStatusBarCallback(bool checked)
-{
-    _showStatusBar = checked;
-    checked ? statusBar()->show() : statusBar()->hide();
-}
-
 void MainWindow::reallyClose(void)
 {
     _forceClose = true;
@@ -425,7 +400,6 @@ void MainWindow::loadSettings()
     QSettings settings;
     settings.beginGroup(MAIN_SETTINGS_GROUP);
     _lowPowerMode   = settings.value("LOW_POWER_MODE",      _lowPowerMode).toBool();
-    _showStatusBar  = settings.value("SHOW_STATUSBAR",      _showStatusBar).toBool();
     settings.endGroup();
 }
 
@@ -434,7 +408,6 @@ void MainWindow::storeSettings()
     QSettings settings;
     settings.beginGroup(MAIN_SETTINGS_GROUP);
     settings.setValue("LOW_POWER_MODE",     _lowPowerMode);
-    settings.setValue("SHOW_STATUSBAR",     _showStatusBar);
     settings.endGroup();
     settings.setValue(_getWindowGeometryKey(), saveGeometry());
 
