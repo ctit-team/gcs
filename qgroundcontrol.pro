@@ -391,11 +391,13 @@ HEADERS += \
     src/api/QGCCorePlugin.h \
     src/api/QGCOptions.h \
     src/api/QmlComponentInfo.h \
+    src/ui/batterystatus.h
 
 SOURCES += \
     src/api/QGCCorePlugin.cc \
     src/api/QGCOptions.cc \
     src/api/QmlComponentInfo.cc \
+    src/ui/batterystatus.cpp
 
 #
 # Unit Test specific configuration goes here (requires full debug build with all plugins)

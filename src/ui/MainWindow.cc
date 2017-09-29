@@ -1,18 +1,4 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-/**
- * @file
- *   @brief Implementation of class MainWindow
- *   @author Lorenz Meier <mail@qgroundcontrol.org>
- */
+#include "batterystatus.h"
 
 #include <QSettings>
 #include <QNetworkInterface>
@@ -278,9 +264,12 @@ MAVLinkDecoder* MainWindow::_mavLinkDecoderInstance(void)
 
 void MainWindow::_buildCommonWidgets(void)
 {
+    // Battery status
+    statusBar()->addWidget(new BatteryStatus(statusBar()));
+
     // Log player
     logPlayer = new QGCMAVLinkLogPlayer(statusBar());
-    statusBar()->addPermanentWidget(logPlayer);
+    statusBar()->addPermanentWidget(logPlayer, 1);
     logPlayer->hide();
 
     // Populate widget menu
