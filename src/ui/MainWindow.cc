@@ -31,9 +31,7 @@
 #include "MAVLinkProtocol.h"
 #include "MainWindow.h"
 #include "GAudioOutput.h"
-#ifndef __mobile__
 #include "QGCMAVLinkLogPlayer.h"
-#endif
 #include "MAVLinkDecoder.h"
 #include "QGCApplication.h"
 #include "MultiVehicleManager.h"
@@ -173,10 +171,6 @@ MainWindow::MainWindow()
     connect(qgcApp()->toolbox()->corePlugin(), &QGCCorePlugin::showAdvancedUIChanged, this, &MainWindow::_showAdvancedUIChanged);
     _showAdvancedUIChanged(qgcApp()->toolbox()->corePlugin()->showAdvancedUI());
 
-    // Status Bar
-    setStatusBar(new QStatusBar(this));
-    statusBar()->setSizeGripEnabled(true);
-
 #ifndef __mobile__
     emit initStatusChanged(tr("Building common widgets."), Qt::AlignLeft | Qt::AlignBottom, QColor(62, 93, 141));
     _buildCommonWidgets();
@@ -235,7 +229,6 @@ MainWindow::MainWindow()
     emit initStatusChanged(tr("Done"), Qt::AlignLeft | Qt::AlignBottom, QColor(62, 93, 141));
 
     if (!qgcApp()->runningUnitTests()) {
-        statusBar()->hide();
         menuBar()->hide();
         show();
     }
@@ -286,9 +279,9 @@ MAVLinkDecoder* MainWindow::_mavLinkDecoderInstance(void)
 void MainWindow::_buildCommonWidgets(void)
 {
     // Log player
-    // TODO: Make this optional with a preferences setting or under a "View" menu
     logPlayer = new QGCMAVLinkLogPlayer(statusBar());
     statusBar()->addPermanentWidget(logPlayer);
+    logPlayer->hide();
 
     // Populate widget menu
     for (int i = 0, end = ARRAY_SIZE(rgDockWidgetNames); i < end; i++) {
