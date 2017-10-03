@@ -22,7 +22,6 @@ const char* AppSettings::offlineEditingCruiseSpeedSettingsName =        "Offline
 const char* AppSettings::offlineEditingHoverSpeedSettingsName =         "OfflineEditingHoverSpeed";
 const char* AppSettings::offlineEditingAscentSpeedSettingsName =        "OfflineEditingAscentSpeed";
 const char* AppSettings::offlineEditingDescentSpeedSettingsName =       "OfflineEditingDescentSpeed";
-const char* AppSettings::batteryPercentRemainingAnnounceSettingsName =  "batteryPercentRemainingAnnounce";
 const char* AppSettings::defaultMissionItemAltitudeSettingsName =       "DefaultMissionItemAltitude";
 const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
@@ -56,7 +55,6 @@ AppSettings::AppSettings(QObject* parent)
     , _offlineEditingHoverSpeedFact(NULL)
     , _offlineEditingAscentSpeedFact(NULL)
     , _offlineEditingDescentSpeedFact(NULL)
-    , _batteryPercentRemainingAnnounceFact(NULL)
     , _defaultMissionItemAltitudeFact(NULL)
     , _virtualJoystickFact(NULL)
     , _showLargeCompassFact(NULL)
@@ -157,15 +155,6 @@ Fact* AppSettings::offlineEditingDescentSpeed(void)
         _offlineEditingDescentSpeedFact = _createSettingsFact(offlineEditingDescentSpeedSettingsName);
     }
     return _offlineEditingDescentSpeedFact;
-}
-
-Fact* AppSettings::batteryPercentRemainingAnnounce(void)
-{
-    if (!_batteryPercentRemainingAnnounceFact) {
-        _batteryPercentRemainingAnnounceFact = _createSettingsFact(batteryPercentRemainingAnnounceSettingsName);
-    }
-
-    return _batteryPercentRemainingAnnounceFact;
 }
 
 Fact* AppSettings::defaultMissionItemAltitude(void)

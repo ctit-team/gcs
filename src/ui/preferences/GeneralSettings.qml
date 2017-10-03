@@ -32,7 +32,6 @@ QGCView {
     anchors.fill:       parent
     anchors.margins:    ScreenTools.defaultFontPixelWidth
 
-    property Fact _percentRemainingAnnounce:    QGroundControl.settingsManager.appSettings.batteryPercentRemainingAnnounce
     property Fact _savePath:                    QGroundControl.settingsManager.appSettings.savePath
     property Fact _userBrandImageIndoor:        QGroundControl.settingsManager.brandImageSettings.userBrandImageIndoor
     property Fact _userBrandImageOutdoor:       QGroundControl.settingsManager.brandImageSettings.userBrandImageOutdoor
@@ -199,32 +198,6 @@ QGCView {
                                     clearCheck.checked  = false
                                     clearDialog.visible = false
                                 }
-                            }
-                        }
-                        //-----------------------------------------------------------------
-                        //-- Battery talker
-                        Row {
-                            spacing: ScreenTools.defaultFontPixelWidth
-                            QGCCheckBox {
-                                id:                 announcePercentCheckbox
-                                text:               qsTr("Announce battery lower than:")
-                                checked:            _percentRemainingAnnounce.value !== 0
-                                width:              (_labelWidth + _editFieldWidth) * 0.65
-                                anchors.verticalCenter: parent.verticalCenter
-                                onClicked: {
-                                    if (checked) {
-                                        _percentRemainingAnnounce.value = _percentRemainingAnnounce.defaultValueString
-                                    } else {
-                                        _percentRemainingAnnounce.value = 0
-                                    }
-                                }
-                            }
-                            FactTextField {
-                                id:                 announcePercent
-                                fact:               _percentRemainingAnnounce
-                                width:              (_labelWidth + _editFieldWidth) * 0.35
-                                enabled:            announcePercentCheckbox.checked
-                                anchors.verticalCenter: parent.verticalCenter
                             }
                         }
                         //-----------------------------------------------------------------

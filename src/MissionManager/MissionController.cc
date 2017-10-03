@@ -102,8 +102,7 @@ void MissionController::_resetMissionFlightStatus(void)
 
     _controllerVehicle->firmwarePlugin()->batteryConsumptionData(_controllerVehicle, _missionFlightStatus.mAhBattery, _missionFlightStatus.hoverAmps, _missionFlightStatus.cruiseAmps);
     if (_missionFlightStatus.mAhBattery != 0) {
-        double batteryPercentRemainingAnnounce = qgcApp()->toolbox()->settingsManager()->appSettings()->batteryPercentRemainingAnnounce()->rawValue().toDouble();
-        _missionFlightStatus.ampMinutesAvailable = (double)_missionFlightStatus.mAhBattery / 1000.0 * 60.0 * ((100.0 - batteryPercentRemainingAnnounce) / 100.0);
+        _missionFlightStatus.ampMinutesAvailable = (double)_missionFlightStatus.mAhBattery / 1000.0 * 60.0;
     }
 
     emit missionDistanceChanged(_missionFlightStatus.totalDistance);

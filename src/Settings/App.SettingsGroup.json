@@ -56,16 +56,6 @@
     "decimalPlaces":    2
 },
 {
-    "name":             "batteryPercentRemainingAnnounce",
-    "shortDescription": "Announce battery remaining percent",
-    "longDescription":  "Announce the remaining battery percent when it falls below the specified percentage.",
-    "type":             "uint32",
-    "defaultValue":     30,
-    "units":            "%",
-    "min":              0,
-    "max":              100
-},
-{
     "name":             "DefaultMissionItemAltitude",
     "shortDescription": "Default value for altitude",
     "longDescription":  "This value specifies the default altitude for new items added to a mission.",
