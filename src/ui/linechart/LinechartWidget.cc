@@ -112,12 +112,8 @@ LinechartWidget::LinechartWidget(int systemid, QWidget *parent) : QWidget(parent
     curvesWidgetLayout->addWidget(new QLabel(tr("Mean")),     labelRow, 5, Qt::AlignRight);
     curvesWidgetLayout->addWidget(new QLabel(tr("Variance")), labelRow, 6, Qt::AlignRight);
 
-
     // Create the layout
     createLayout();
-
-    // And make sure we're listening for future style changes
-    connect(qgcApp()->toolbox()->settingsManager()->appSettings()->indoorPalette(), &Fact::rawValueChanged, this, &LinechartWidget::recolor);
 
     updateTimer->setInterval(updateInterval);
     connect(updateTimer, &QTimer::timeout, this, &LinechartWidget::refresh);
@@ -641,7 +637,7 @@ void LinechartWidget::removeCurve(QString curve)
 
 void LinechartWidget::recolor()
 {
-    activePlot->styleChanged(qgcApp()->toolbox()->settingsManager()->appSettings()->indoorPalette()->rawValue().toBool());
+    activePlot->styleChanged(true);
     foreach (const QString &key, colorIcons.keys())
     {
         QWidget* colorIcon = colorIcons.value(key, 0);

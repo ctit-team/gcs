@@ -28,7 +28,6 @@ const char* AppSettings::telemetrySaveName =                            "PromptF
 const char* AppSettings::telemetrySaveNotArmedName =                    "PromptFLightDataSaveNotArmed";
 const char* AppSettings::audioMutedName =                               "AudioMuted";
 const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
-const char* AppSettings::indoorPaletteName =                            "StyleIsDark";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
 const char* AppSettings::savePathName =                                 "SavePath";
 const char* AppSettings::autoLoadMissionsName =                         "AutoLoadMissions";
@@ -66,7 +65,6 @@ AppSettings::AppSettings(QObject* parent)
     , _telemetrySaveNotArmedFact(NULL)
     , _audioMutedFact(NULL)
     , _virtualJoystickFact(NULL)
-    , _indoorPaletteFact(NULL)
     , _showLargeCompassFact(NULL)
     , _savePathFact(NULL)
     , _autoLoadMissionsFact(NULL)
@@ -76,7 +74,7 @@ AppSettings::AppSettings(QObject* parent)
 {
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
     qmlRegisterUncreatableType<AppSettings>("QGroundControl.SettingsManager", 1, 0, "AppSettings", "Reference only");
-    QGCPalette::setGlobalTheme(indoorPalette()->rawValue().toBool() ? QGCPalette::Dark : QGCPalette::Light);
+    QGCPalette::setGlobalTheme(QGCPalette::Dark);
 
     // Instantiate savePath so we can check for override and setup default path if needed
 
@@ -221,20 +219,10 @@ Fact* AppSettings::virtualJoystick(void)
     return _virtualJoystickFact;
 }
 
-Fact* AppSettings::indoorPalette(void)
-{
-    if (!_indoorPaletteFact) {
-        _indoorPaletteFact = _createSettingsFact(indoorPaletteName);
-        connect(_indoorPaletteFact, &Fact::rawValueChanged, this, &AppSettings::_indoorPaletteChanged);
-    }
-
-    return _indoorPaletteFact;
-}
-
 void AppSettings::_indoorPaletteChanged(void)
 {
     qgcApp()->_loadCurrentStyleSheet();
-    QGCPalette::setGlobalTheme(indoorPalette()->rawValue().toBool() ? QGCPalette::Dark : QGCPalette::Light);
+    QGCPalette::setGlobalTheme(QGCPalette::Dark);
 }
 
 Fact* AppSettings::showLargeCompass(void)

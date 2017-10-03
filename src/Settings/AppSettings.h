@@ -32,7 +32,6 @@ public:
     Q_PROPERTY(Fact* telemetrySaveNotArmed              READ telemetrySaveNotArmed              CONSTANT)
     Q_PROPERTY(Fact* audioMuted                         READ audioMuted                         CONSTANT)
     Q_PROPERTY(Fact* virtualJoystick                    READ virtualJoystick                    CONSTANT)
-    Q_PROPERTY(Fact* indoorPalette                      READ indoorPalette                      CONSTANT)
     Q_PROPERTY(Fact* showLargeCompass                   READ showLargeCompass                   CONSTANT)
     Q_PROPERTY(Fact* savePath                           READ savePath                           CONSTANT)
     Q_PROPERTY(Fact* autoLoadMissions                   READ autoLoadMissions                   CONSTANT)
@@ -66,7 +65,6 @@ public:
     Fact* telemetrySaveNotArmed             (void);
     Fact* audioMuted                        (void);
     Fact* virtualJoystick                   (void);
-    Fact* indoorPalette                     (void);
     Fact* showLargeCompass                  (void);
     Fact* savePath                          (void);
     Fact* autoLoadMissions                  (void);
@@ -97,7 +95,6 @@ public:
     static const char* telemetrySaveNotArmedName;
     static const char* audioMutedName;
     static const char* virtualJoystickName;
-    static const char* indoorPaletteName;
     static const char* showLargeCompassName;
     static const char* savePathName;
     static const char* autoLoadMissionsName;
@@ -143,7 +140,6 @@ private:
     SettingsFact* _telemetrySaveNotArmedFact;
     SettingsFact* _audioMutedFact;
     SettingsFact* _virtualJoystickFact;
-    SettingsFact* _indoorPaletteFact;
     SettingsFact* _showLargeCompassFact;
     SettingsFact* _savePathFact;
     SettingsFact* _autoLoadMissionsFact;

@@ -135,23 +135,6 @@ QGCView {
                         spacing:    ScreenTools.defaultFontPixelWidth
                         anchors.centerIn: parent
                         //-----------------------------------------------------------------
-                        //-- Palette Styles
-                        Row {
-                            spacing: ScreenTools.defaultFontPixelWidth
-                            visible: QGroundControl.settingsManager.appSettings.indoorPalette.visible
-                            QGCLabel {
-                                text:           qsTr("Color Scheme:")
-                                width:          _labelWidth
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            FactComboBox {
-                                width:          _editFieldWidth
-                                fact:           QGroundControl.settingsManager.appSettings.indoorPalette
-                                indexModel:     false
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                        }
-                        //-----------------------------------------------------------------
                         //-- Map Provider
                         Row {
                             spacing:    ScreenTools.defaultFontPixelWidth

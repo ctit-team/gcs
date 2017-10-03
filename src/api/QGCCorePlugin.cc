@@ -184,18 +184,8 @@ bool QGCCorePlugin::overrideSettingsGroupVisibility(QString name)
 
 bool QGCCorePlugin::adjustSettingMetaData(FactMetaData& metaData)
 {
-    //-- Default Palette
-    if (metaData.name() == AppSettings::indoorPaletteName) {
-        QVariant outdoorPalette;
-#if defined (__mobile__)
-        outdoorPalette = 0;
-#else
-        outdoorPalette = 1;
-#endif
-        metaData.setRawDefaultValue(outdoorPalette);
-        return true;
     //-- Auto Save Telemetry Logs
-    } else if (metaData.name() == AppSettings::telemetrySaveName) {
+    if (metaData.name() == AppSettings::telemetrySaveName) {
 #if defined (__mobile__)
         metaData.setRawDefaultValue(false);
         return true;
