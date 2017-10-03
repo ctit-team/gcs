@@ -28,8 +28,6 @@ public:
     Q_PROPERTY(Fact* offlineEditingDescentSpeed         READ offlineEditingDescentSpeed         CONSTANT)
     Q_PROPERTY(Fact* batteryPercentRemainingAnnounce    READ batteryPercentRemainingAnnounce    CONSTANT)
     Q_PROPERTY(Fact* defaultMissionItemAltitude         READ defaultMissionItemAltitude         CONSTANT)
-    Q_PROPERTY(Fact* telemetrySave                      READ telemetrySave                      CONSTANT)
-    Q_PROPERTY(Fact* telemetrySaveNotArmed              READ telemetrySaveNotArmed              CONSTANT)
     Q_PROPERTY(Fact* virtualJoystick                    READ virtualJoystick                    CONSTANT)
     Q_PROPERTY(Fact* showLargeCompass                   READ showLargeCompass                   CONSTANT)
     Q_PROPERTY(Fact* savePath                           READ savePath                           CONSTANT)
@@ -60,8 +58,6 @@ public:
     Fact* offlineEditingDescentSpeed        (void);
     Fact* batteryPercentRemainingAnnounce   (void);
     Fact* defaultMissionItemAltitude        (void);
-    Fact* telemetrySave                     (void);
-    Fact* telemetrySaveNotArmed             (void);
     Fact* virtualJoystick                   (void);
     Fact* showLargeCompass                  (void);
     Fact* savePath                          (void);
@@ -89,8 +85,6 @@ public:
     static const char* offlineEditingDescentSpeedSettingsName;
     static const char* batteryPercentRemainingAnnounceSettingsName;
     static const char* defaultMissionItemAltitudeSettingsName;
-    static const char* telemetrySaveName;
-    static const char* telemetrySaveNotArmedName;
     static const char* virtualJoystickName;
     static const char* showLargeCompassName;
     static const char* savePathName;
@@ -133,8 +127,6 @@ private:
     SettingsFact* _offlineEditingDescentSpeedFact;
     SettingsFact* _batteryPercentRemainingAnnounceFact;
     SettingsFact* _defaultMissionItemAltitudeFact;
-    SettingsFact* _telemetrySaveFact;
-    SettingsFact* _telemetrySaveNotArmedFact;
     SettingsFact* _virtualJoystickFact;
     SettingsFact* _showLargeCompassFact;
     SettingsFact* _savePathFact;

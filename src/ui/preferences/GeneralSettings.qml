@@ -176,24 +176,6 @@ QGCView {
                             }
                         }
                         //-----------------------------------------------------------------
-                        //-- Save telemetry log
-                        FactCheckBox {
-                            id:         promptSaveLog
-                            text:       qsTr("Save telemetry log after each flight")
-                            fact:       _telemetrySave
-                            visible:    _telemetrySave.visible
-                            property Fact _telemetrySave: QGroundControl.settingsManager.appSettings.telemetrySave
-                        }
-                        //-----------------------------------------------------------------
-                        //-- Save even if not armed
-                        FactCheckBox {
-                            text:       qsTr("Save telemetry log even if vehicle was not armed")
-                            fact:       _telemetrySaveNotArmed
-                            visible:    _telemetrySaveNotArmed.visible
-                            enabled:    promptSaveLog.checked
-                            property Fact _telemetrySaveNotArmed: QGroundControl.settingsManager.appSettings.telemetrySaveNotArmed
-                        }
-                        //-----------------------------------------------------------------
                         //-- Clear settings
                         QGCCheckBox {
                             id:         clearCheck

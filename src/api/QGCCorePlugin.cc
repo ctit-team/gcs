@@ -184,23 +184,6 @@ bool QGCCorePlugin::overrideSettingsGroupVisibility(QString name)
 
 bool QGCCorePlugin::adjustSettingMetaData(FactMetaData& metaData)
 {
-    //-- Auto Save Telemetry Logs
-    if (metaData.name() == AppSettings::telemetrySaveName) {
-#if defined (__mobile__)
-        metaData.setRawDefaultValue(false);
-        return true;
-#else
-        metaData.setRawDefaultValue(true);
-        return true;
-#endif
-#if defined(__ios__)
-    } else if (metaData.name() == AppSettings::savePathName) {
-        QString appName = qgcApp()->applicationName();
-        QDir rootDir = QDir(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
-        metaData.setRawDefaultValue(rootDir.filePath(appName));
-        return false;
-#endif
-    }
     return true; // Show setting in ui
 }
 

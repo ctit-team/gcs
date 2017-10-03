@@ -24,8 +24,6 @@ const char* AppSettings::offlineEditingAscentSpeedSettingsName =        "Offline
 const char* AppSettings::offlineEditingDescentSpeedSettingsName =       "OfflineEditingDescentSpeed";
 const char* AppSettings::batteryPercentRemainingAnnounceSettingsName =  "batteryPercentRemainingAnnounce";
 const char* AppSettings::defaultMissionItemAltitudeSettingsName =       "DefaultMissionItemAltitude";
-const char* AppSettings::telemetrySaveName =                            "PromptFLightDataSave";
-const char* AppSettings::telemetrySaveNotArmedName =                    "PromptFLightDataSaveNotArmed";
 const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
 const char* AppSettings::savePathName =                                 "SavePath";
@@ -60,8 +58,6 @@ AppSettings::AppSettings(QObject* parent)
     , _offlineEditingDescentSpeedFact(NULL)
     , _batteryPercentRemainingAnnounceFact(NULL)
     , _defaultMissionItemAltitudeFact(NULL)
-    , _telemetrySaveFact(NULL)
-    , _telemetrySaveNotArmedFact(NULL)
     , _virtualJoystickFact(NULL)
     , _showLargeCompassFact(NULL)
     , _savePathFact(NULL)
@@ -179,24 +175,6 @@ Fact* AppSettings::defaultMissionItemAltitude(void)
     }
 
     return _defaultMissionItemAltitudeFact;
-}
-
-Fact* AppSettings::telemetrySave(void)
-{
-    if (!_telemetrySaveFact) {
-        _telemetrySaveFact = _createSettingsFact(telemetrySaveName);
-    }
-
-    return _telemetrySaveFact;
-}
-
-Fact* AppSettings::telemetrySaveNotArmed(void)
-{
-    if (!_telemetrySaveNotArmedFact) {
-        _telemetrySaveNotArmedFact = _createSettingsFact(telemetrySaveNotArmedName);
-    }
-
-    return _telemetrySaveNotArmedFact;
 }
 
 Fact* AppSettings::virtualJoystick(void)
