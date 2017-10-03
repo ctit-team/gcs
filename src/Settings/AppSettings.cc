@@ -28,7 +28,6 @@ const char* AppSettings::telemetrySaveName =                            "PromptF
 const char* AppSettings::telemetrySaveNotArmedName =                    "PromptFLightDataSaveNotArmed";
 const char* AppSettings::audioMutedName =                               "AudioMuted";
 const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
-const char* AppSettings::appFontPointSizeName =                         "BaseDeviceFontPointSize";
 const char* AppSettings::indoorPaletteName =                            "StyleIsDark";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
 const char* AppSettings::savePathName =                                 "SavePath";
@@ -67,7 +66,6 @@ AppSettings::AppSettings(QObject* parent)
     , _telemetrySaveNotArmedFact(NULL)
     , _audioMutedFact(NULL)
     , _virtualJoystickFact(NULL)
-    , _appFontPointSizeFact(NULL)
     , _indoorPaletteFact(NULL)
     , _showLargeCompassFact(NULL)
     , _savePathFact(NULL)
@@ -212,15 +210,6 @@ Fact* AppSettings::audioMuted(void)
     }
 
     return _audioMutedFact;
-}
-
-Fact* AppSettings::appFontPointSize(void)
-{
-    if (!_appFontPointSizeFact) {
-        _appFontPointSizeFact = _createSettingsFact(appFontPointSizeName);
-    }
-
-    return _appFontPointSizeFact;
 }
 
 Fact* AppSettings::virtualJoystick(void)

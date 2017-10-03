@@ -34,15 +34,12 @@ QGCView {
 
     property Fact _percentRemainingAnnounce:    QGroundControl.settingsManager.appSettings.batteryPercentRemainingAnnounce
     property Fact _savePath:                    QGroundControl.settingsManager.appSettings.savePath
-    property Fact _appFontPointSize:            QGroundControl.settingsManager.appSettings.appFontPointSize
     property Fact _userBrandImageIndoor:        QGroundControl.settingsManager.brandImageSettings.userBrandImageIndoor
     property Fact _userBrandImageOutdoor:       QGroundControl.settingsManager.brandImageSettings.userBrandImageOutdoor
     property real _labelWidth:                  ScreenTools.defaultFontPixelWidth * 15
     property real _editFieldWidth:              ScreenTools.defaultFontPixelWidth * 30
     property Fact _mapProvider:                 QGroundControl.settingsManager.flightMapSettings.mapProvider
     property Fact _mapType:                     QGroundControl.settingsManager.flightMapSettings.mapType
-
-    readonly property string _requiresRestart:  qsTr("(Requires Restart)")
 
     QGCPalette { id: qgcPal }
 
@@ -137,52 +134,6 @@ QGCView {
                         id:         miscCol
                         spacing:    ScreenTools.defaultFontPixelWidth
                         anchors.centerIn: parent
-                        //-----------------------------------------------------------------
-                        //-- Base UI Font Point Size
-                        Row {
-                            visible: _appFontPointSize ? _appFontPointSize.visible : false
-                            spacing: ScreenTools.defaultFontPixelWidth
-                            QGCLabel {
-                                id:     baseFontLabel
-                                text:   qsTr("Font Size:")
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            Row {
-                                id:         baseFontRow
-                                spacing:    ScreenTools.defaultFontPixelWidth / 2
-                                anchors.verticalCenter: parent.verticalCenter
-                                QGCButton {
-                                    id:     decrementButton
-                                    width:  height
-                                    height: baseFontEdit.height
-                                    text:   "-"
-                                    onClicked: {
-                                        if (_appFontPointSize.value > _appFontPointSize.min) {
-                                            _appFontPointSize.value = _appFontPointSize.value - 1
-                                        }
-                                    }
-                                }
-                                FactTextField {
-                                    id:     baseFontEdit
-                                    width:  _editFieldWidth - (decrementButton.width * 2) - (baseFontRow.spacing * 2)
-                                    fact:   QGroundControl.settingsManager.appSettings.appFontPointSize
-                                }
-                                QGCButton {
-                                    width:  height
-                                    height: baseFontEdit.height
-                                    text:   "+"
-                                    onClicked: {
-                                        if (_appFontPointSize.value < _appFontPointSize.max) {
-                                            _appFontPointSize.value = _appFontPointSize.value + 1
-                                        }
-                                    }
-                                }
-                            }
-                            QGCLabel {
-                                anchors.verticalCenter: parent.verticalCenter
-                                text:                   _requiresRestart
-                            }
-                        }
                         //-----------------------------------------------------------------
                         //-- Palette Styles
                         Row {
