@@ -176,14 +176,6 @@ QGCView {
                             }
                         }
                         //-----------------------------------------------------------------
-                        //-- Audio preferences
-                        FactCheckBox {
-                            text:       qsTr("Mute all audio output")
-                            fact:       _audioMuted
-                            visible:    _audioMuted.visible
-                            property Fact _audioMuted: QGroundControl.settingsManager.appSettings.audioMuted
-                        }
-                        //-----------------------------------------------------------------
                         //-- Save telemetry log
                         FactCheckBox {
                             id:         promptSaveLog

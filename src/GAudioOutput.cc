@@ -53,27 +53,11 @@ GAudioOutput::~GAudioOutput()
 #endif
 }
 
-
 bool GAudioOutput::say(const QString& inText)
 {
-    bool muted = qgcApp()->toolbox()->settingsManager()->appSettings()->audioMuted()->rawValue().toBool();
-    muted |= qgcApp()->runningUnitTests();
-    if (!muted && !qgcApp()->runningUnitTests()) {
-#if defined __android__
-#if defined QGC_SPEECH_ENABLED
-        static const char V_jniClassName[] {"org/mavlink/qgroundcontrol/QGCActivity"};
-        QAndroidJniEnvironment env;
-        if (env->ExceptionCheck()) {
-            env->ExceptionDescribe();
-            env->ExceptionClear();
-        }
-        QString text = QGCAudioWorker::fixTextMessageForAudio(inText);
-        QAndroidJniObject javaMessage = QAndroidJniObject::fromString(text);
-        QAndroidJniObject::callStaticMethod<void>(V_jniClassName, "say", "(Ljava/lang/String;)V", javaMessage.object<jstring>());
-#endif
-#else
+    if (!qgcApp()->runningUnitTests()) {
         emit textToSpeak(inText);
-#endif
     }
+
     return true;
 }

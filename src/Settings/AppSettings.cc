@@ -26,7 +26,6 @@ const char* AppSettings::batteryPercentRemainingAnnounceSettingsName =  "battery
 const char* AppSettings::defaultMissionItemAltitudeSettingsName =       "DefaultMissionItemAltitude";
 const char* AppSettings::telemetrySaveName =                            "PromptFLightDataSave";
 const char* AppSettings::telemetrySaveNotArmedName =                    "PromptFLightDataSaveNotArmed";
-const char* AppSettings::audioMutedName =                               "AudioMuted";
 const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
 const char* AppSettings::savePathName =                                 "SavePath";
@@ -63,7 +62,6 @@ AppSettings::AppSettings(QObject* parent)
     , _defaultMissionItemAltitudeFact(NULL)
     , _telemetrySaveFact(NULL)
     , _telemetrySaveNotArmedFact(NULL)
-    , _audioMutedFact(NULL)
     , _virtualJoystickFact(NULL)
     , _showLargeCompassFact(NULL)
     , _savePathFact(NULL)
@@ -199,15 +197,6 @@ Fact* AppSettings::telemetrySaveNotArmed(void)
     }
 
     return _telemetrySaveNotArmedFact;
-}
-
-Fact* AppSettings::audioMuted(void)
-{
-    if (!_audioMutedFact) {
-        _audioMutedFact = _createSettingsFact(audioMutedName);
-    }
-
-    return _audioMutedFact;
 }
 
 Fact* AppSettings::virtualJoystick(void)
