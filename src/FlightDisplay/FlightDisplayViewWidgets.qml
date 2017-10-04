@@ -64,7 +64,7 @@ Item {
             } else {
                 // Note: We currently show alternate instruments all the time. This is a trial change for daily builds.
                 // Leaving non-alternate code in for now in case the trial fails.
-                var useAlternateInstruments = true//QGroundControl.settingsManager.appSettings.virtualJoystick.value || ScreenTools.isTinyScreen
+                var useAlternateInstruments = true//ScreenTools.isTinyScreen
                 if(useAlternateInstruments) {
                     instrumentsLoader.source = "qrc:/qml/QGCInstrumentWidgetAlternate.qml"
                     instrumentsLoader.state  = "topMode"
@@ -76,11 +76,6 @@ Item {
         } else {
             instrumentsLoader.source = ""
         }
-    }
-
-    Connections {
-        target:         QGroundControl.settingsManager.appSettings.virtualJoystick
-        onValueChanged: _setInstrumentWidget()
     }
 
     Connections {

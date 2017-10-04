@@ -201,15 +201,6 @@ QGCView {
                             }
                         }
                         //-----------------------------------------------------------------
-                        //-- Virtual joystick settings
-                        FactCheckBox {
-                            text:       qsTr("Virtual Joystick")
-                            visible:    _virtualJoystick.visible
-                            fact:       _virtualJoystick
-
-                            property Fact _virtualJoystick: QGroundControl.settingsManager.appSettings.virtualJoystick
-                        }
-                        //-----------------------------------------------------------------
                         //-- Default mission item altitude
                         Row {
                             spacing:    ScreenTools.defaultFontPixelWidth

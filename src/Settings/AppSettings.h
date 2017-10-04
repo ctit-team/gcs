@@ -27,7 +27,6 @@ public:
     Q_PROPERTY(Fact* offlineEditingAscentSpeed          READ offlineEditingAscentSpeed          CONSTANT)
     Q_PROPERTY(Fact* offlineEditingDescentSpeed         READ offlineEditingDescentSpeed         CONSTANT)
     Q_PROPERTY(Fact* defaultMissionItemAltitude         READ defaultMissionItemAltitude         CONSTANT)
-    Q_PROPERTY(Fact* virtualJoystick                    READ virtualJoystick                    CONSTANT)
     Q_PROPERTY(Fact* showLargeCompass                   READ showLargeCompass                   CONSTANT)
     Q_PROPERTY(Fact* savePath                           READ savePath                           CONSTANT)
     Q_PROPERTY(Fact* autoLoadMissions                   READ autoLoadMissions                   CONSTANT)
@@ -56,7 +55,6 @@ public:
     Fact* offlineEditingAscentSpeed         (void);
     Fact* offlineEditingDescentSpeed        (void);
     Fact* defaultMissionItemAltitude        (void);
-    Fact* virtualJoystick                   (void);
     Fact* showLargeCompass                  (void);
     Fact* savePath                          (void);
     Fact* autoLoadMissions                  (void);
@@ -82,7 +80,6 @@ public:
     static const char* offlineEditingAscentSpeedSettingsName;
     static const char* offlineEditingDescentSpeedSettingsName;
     static const char* defaultMissionItemAltitudeSettingsName;
-    static const char* virtualJoystickName;
     static const char* showLargeCompassName;
     static const char* savePathName;
     static const char* autoLoadMissionsName;
@@ -123,7 +120,6 @@ private:
     SettingsFact* _offlineEditingAscentSpeedFact;
     SettingsFact* _offlineEditingDescentSpeedFact;
     SettingsFact* _defaultMissionItemAltitudeFact;
-    SettingsFact* _virtualJoystickFact;
     SettingsFact* _showLargeCompassFact;
     SettingsFact* _savePathFact;
     SettingsFact* _autoLoadMissionsFact;

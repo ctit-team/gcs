@@ -23,7 +23,6 @@ const char* AppSettings::offlineEditingHoverSpeedSettingsName =         "Offline
 const char* AppSettings::offlineEditingAscentSpeedSettingsName =        "OfflineEditingAscentSpeed";
 const char* AppSettings::offlineEditingDescentSpeedSettingsName =       "OfflineEditingDescentSpeed";
 const char* AppSettings::defaultMissionItemAltitudeSettingsName =       "DefaultMissionItemAltitude";
-const char* AppSettings::virtualJoystickName =                          "VirtualTabletJoystick";
 const char* AppSettings::showLargeCompassName =                         "ShowLargeCompass";
 const char* AppSettings::savePathName =                                 "SavePath";
 const char* AppSettings::autoLoadMissionsName =                         "AutoLoadMissions";
@@ -56,7 +55,6 @@ AppSettings::AppSettings(QObject* parent)
     , _offlineEditingAscentSpeedFact(NULL)
     , _offlineEditingDescentSpeedFact(NULL)
     , _defaultMissionItemAltitudeFact(NULL)
-    , _virtualJoystickFact(NULL)
     , _showLargeCompassFact(NULL)
     , _savePathFact(NULL)
     , _autoLoadMissionsFact(NULL)
@@ -164,15 +162,6 @@ Fact* AppSettings::defaultMissionItemAltitude(void)
     }
 
     return _defaultMissionItemAltitudeFact;
-}
-
-Fact* AppSettings::virtualJoystick(void)
-{
-    if (!_virtualJoystickFact) {
-        _virtualJoystickFact = _createSettingsFact(virtualJoystickName);
-    }
-
-    return _virtualJoystickFact;
 }
 
 void AppSettings::_indoorPaletteChanged(void)
