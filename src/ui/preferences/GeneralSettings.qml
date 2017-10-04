@@ -32,7 +32,6 @@ QGCView {
     anchors.fill:       parent
     anchors.margins:    ScreenTools.defaultFontPixelWidth
 
-    property Fact _savePath:                    QGroundControl.settingsManager.appSettings.savePath
     property Fact _userBrandImageIndoor:        QGroundControl.settingsManager.brandImageSettings.userBrandImageIndoor
     property Fact _userBrandImageOutdoor:       QGroundControl.settingsManager.brandImageSettings.userBrandImageOutdoor
     property real _labelWidth:                  ScreenTools.defaultFontPixelWidth * 15
@@ -226,82 +225,6 @@ QGCView {
                             visible:    _autoLoad.visible
 
                             property Fact _autoLoad: QGroundControl.settingsManager.appSettings.autoLoadMissions
-                        }
-
-                        //-----------------------------------------------------------------
-                        //-- Save path
-                        Row {
-                            spacing:    ScreenTools.defaultFontPixelWidth
-                            visible:    _savePath.visible
-
-                            QGCLabel {
-                                anchors.baseline:   savePathBrowse.baseline
-                                text:               qsTr("File Save Path:")
-                            }
-                            QGCLabel {
-                                anchors.baseline:   savePathBrowse.baseline
-                                text:               _savePath.rawValue === "" ? qsTr("<not set>") : _savePath.value
-                            }
-                            QGCButton {
-                                id:         savePathBrowse
-                                text:       "Browse"
-                                onClicked:  savePathBrowseDialog.openForLoad()
-
-                                QGCFileDialog {
-                                    id:             savePathBrowseDialog
-                                    qgcView:        _qgcView
-                                    title:          qsTr("Choose the location to save files:")
-                                    folder:         _savePath.rawValue
-                                    selectExisting: true
-                                    selectFolder:   true
-
-                                    onAcceptedForLoad: _savePath.rawValue = file
-                                }
-                            }
-                        }
-                    }
-                }
-
-                //-----------------------------------------------------------------
-                //-- RTK GPS
-                Item {
-                    width:                      _qgcView.width * 0.8
-                    height:                     unitLabel.height
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.rtkSettings.visible
-                    QGCLabel {
-                        id:             rtkLabel
-                        text:           qsTr("RTK GPS (Requires Restart)")
-                        font.family:    ScreenTools.demiboldFontFamily
-                    }
-                }
-                Rectangle {
-                    height:                     rtkGrid.height + (ScreenTools.defaultFontPixelHeight * 2)
-                    width:                      _qgcView.width * 0.8
-                    color:                      qgcPal.windowShade
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.rtkSettings.visible
-                    GridLayout {
-                        id:                 rtkGrid
-                        anchors.centerIn:   parent
-                        columns:            2
-                        rowSpacing:         ScreenTools.defaultFontPixelWidth
-                        columnSpacing:      ScreenTools.defaultFontPixelWidth
-
-                        QGCLabel {
-                            text:               qsTr("Survey in accuracy:")
-                        }
-                        FactTextField {
-                            fact:               QGroundControl.settingsManager.rtkSettings.surveyInAccuracyLimit
-                        }
-
-                        QGCLabel {
-                            text:               qsTr("Minimum observation duration:")
-                        }
-                        FactTextField {
-                            fact:               QGroundControl.settingsManager.rtkSettings.surveyInMinObservationDuration
                         }
                     }
                 }
