@@ -230,63 +230,6 @@ QGCView {
                 }
 
                 //-----------------------------------------------------------------
-                //-- Video Source
-                Item {
-                    width:                      _qgcView.width * 0.8
-                    height:                     videoRecLabel.height
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.videoSettings.visible
-                    QGCLabel {
-                        id:             videoRecLabel
-                        text:           qsTr("Video Recording")
-                        font.family:    ScreenTools.demiboldFontFamily
-                    }
-                }
-                Rectangle {
-                    height:                     videoRecCol.height + (ScreenTools.defaultFontPixelHeight * 2)
-                    width:                      _qgcView.width * 0.8
-                    color:                      qgcPal.windowShade
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.videoSettings.visible
-
-                    Column {
-                        id:         videoRecCol
-                        spacing:    ScreenTools.defaultFontPixelWidth
-                        anchors.centerIn: parent
-                        Row {
-                            spacing:    ScreenTools.defaultFontPixelWidth
-                            visible:    QGroundControl.videoManager.isGStreamer && videoSource.currentIndex && videoSource.currentIndex < 4 && QGroundControl.settingsManager.videoSettings.maxVideoSize.visible
-                            QGCLabel {
-                                text:               qsTr("Max Storage Usage:")
-                                width:              _labelWidth
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            FactTextField {
-                                width:              _editFieldWidth
-                                fact:               QGroundControl.settingsManager.videoSettings.maxVideoSize
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                        }
-                        Row {
-                            spacing:    ScreenTools.defaultFontPixelWidth
-                            visible:    QGroundControl.videoManager.isGStreamer && videoSource.currentIndex && videoSource.currentIndex < 4 && QGroundControl.settingsManager.videoSettings.recordingFormat.visible
-                            QGCLabel {
-                                text:               qsTr("Video File Format:")
-                                width:              _labelWidth
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                            FactComboBox {
-                                width:              _editFieldWidth
-                                fact:               QGroundControl.settingsManager.videoSettings.recordingFormat
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-                        }
-                    }
-                }
-
-                //-----------------------------------------------------------------
                 //-- Custom Brand Image
                 Item {
                     width:                      _qgcView.width * 0.8
