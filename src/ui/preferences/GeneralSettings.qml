@@ -230,58 +230,6 @@ QGCView {
                 }
 
                 //-----------------------------------------------------------------
-                //-- Autoconnect settings
-                Item {
-                    width:                      _qgcView.width * 0.8
-                    height:                     autoConnectLabel.height
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.autoConnectSettings.visible
-                    QGCLabel {
-                        id:             autoConnectLabel
-                        text:           qsTr("AutoConnect to the following devices:")
-                        font.family:    ScreenTools.demiboldFontFamily
-                    }
-                }
-                Rectangle {
-                    height:                     autoConnectCol.height + (ScreenTools.defaultFontPixelHeight * 2)
-                    width:                      _qgcView.width * 0.8
-                    color:                      qgcPal.windowShade
-                    anchors.margins:            ScreenTools.defaultFontPixelWidth
-                    anchors.horizontalCenter:   parent.horizontalCenter
-                    visible:                    QGroundControl.settingsManager.autoConnectSettings.visible
-
-                    Column {
-                        id:         autoConnectCol
-                        spacing:    ScreenTools.defaultFontPixelWidth
-                        anchors.centerIn: parent
-
-                        Row {
-                            spacing: ScreenTools.defaultFontPixelWidth * 2
-
-                            Repeater {
-                                id:     autoConnectRepeater
-                                model:  [ QGroundControl.settingsManager.autoConnectSettings.autoConnectPixhawk,
-                                    QGroundControl.settingsManager.autoConnectSettings.autoConnectSiKRadio,
-                                    QGroundControl.settingsManager.autoConnectSettings.autoConnectPX4Flow,
-                                    QGroundControl.settingsManager.autoConnectSettings.autoConnectLibrePilot,
-                                    QGroundControl.settingsManager.autoConnectSettings.autoConnectUDP,
-                                    QGroundControl.settingsManager.autoConnectSettings.autoConnectRTKGPS
-                                ]
-
-                                property var names: [ qsTr("Pixhawk"), qsTr("SiK Radio"), qsTr("PX4 Flow"), qsTr("LibrePilot"), qsTr("UDP"), qsTr("RTK GPS") ]
-
-                                FactCheckBox {
-                                    text:       autoConnectRepeater.names[index]
-                                    fact:       modelData
-                                    visible:    !ScreenTools.isiOS && modelData.visible
-                                }
-                            }
-                        }
-                    }
-                }
-
-                //-----------------------------------------------------------------
                 //-- Video Source
                 Item {
                     width:                      _qgcView.width * 0.8
