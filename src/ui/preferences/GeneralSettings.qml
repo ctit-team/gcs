@@ -231,7 +231,7 @@ QGCView {
 
                 QGCLabel {
                     anchors.horizontalCenter:   parent.horizontalCenter
-                    text:                       qsTr("%1 Version: %2").arg(QGroundControl.appName).arg(QGroundControl.qgcVersion)
+                    text:                       qsTr("Application Version: %1").arg(QGroundControl.qgcVersion)
                 }
             } // settingsColumn
         } // QGCFlickable
