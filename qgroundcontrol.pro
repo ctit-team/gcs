@@ -828,8 +828,8 @@ SOURCES += \
 
 # Palette test widget in debug builds
 DebugBuild {
-    HEADERS += src/QmlControls/QmlTestWidget.h
-    SOURCES += src/QmlControls/QmlTestWidget.cc
+    HEADERS +=
+    SOURCES +=
 }
 
 #

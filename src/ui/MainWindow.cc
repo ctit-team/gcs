@@ -25,22 +25,15 @@
 #include "UAS.h"
 #include "QGCImageProvider.h"
 #include "QGCCorePlugin.h"
-
-#ifndef __mobile__
 #include "Linecharts.h"
 #include "QGCUASFileViewMulti.h"
 #include "CustomCommandWidget.h"
 #include "QGCDockWidget.h"
 #include "HILDockWidget.h"
 #include "AppMessages.h"
-#endif
 
 #ifndef NO_SERIAL_LINK
 #include "SerialLink.h"
-#endif
-
-#ifdef UNITTEST_BUILD
-#include "QmlControls/QmlTestWidget.h"
 #endif
 
 /// The key under which the Main Window settings are saved
@@ -146,12 +139,6 @@ MainWindow::MainWindow()
     // On Mobile devices, we don't want any main menus at all.
 #ifdef __mobile__
     menuBar()->setNativeMenuBar(false);
-#endif
-
-#ifdef UNITTEST_BUILD
-    QAction* qmlTestAction = new QAction("Test QML palette and controls", NULL);
-    connect(qmlTestAction, &QAction::triggered, this, &MainWindow::_showQmlTestWidget);
-    _ui.menuWidgets->addAction(qmlTestAction);
 #endif
 
     connect(qgcApp()->toolbox()->corePlugin(), &QGCCorePlugin::showAdvancedUIChanged, this, &MainWindow::_showAdvancedUIChanged);
@@ -453,13 +440,6 @@ bool MainWindow::x11Event(XEvent *event)
     return false;
 }
 #endif // QGC_MOUSE_ENABLED_LINUX
-
-#ifdef UNITTEST_BUILD
-void MainWindow::_showQmlTestWidget(void)
-{
-    new QmlTestWidget();
-}
-#endif
 
 #ifndef __mobile__
 void MainWindow::_loadVisibleWidgetsSettings(void)
