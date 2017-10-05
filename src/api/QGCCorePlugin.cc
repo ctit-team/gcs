@@ -30,7 +30,6 @@ public:
         : pGeneral                  (NULL)
         , pCommLinks                (NULL)
         , pOfflineMaps              (NULL)
-        , pMAVLink                  (NULL)
         , pConsole                  (NULL)
     #if defined(QT_DEBUG)
         , pMockLink                 (NULL)
@@ -52,8 +51,6 @@ public:
             delete pCommLinks;
         if(pOfflineMaps)
             delete pOfflineMaps;
-        if(pMAVLink)
-            delete pMAVLink;
         if(pConsole)
             delete pConsole;
 #if defined(QT_DEBUG)
@@ -69,7 +66,6 @@ public:
     QmlComponentInfo* pGeneral;
     QmlComponentInfo* pCommLinks;
     QmlComponentInfo* pOfflineMaps;
-    QmlComponentInfo* pMAVLink;
     QmlComponentInfo* pConsole;
 #if defined(QT_DEBUG)
     QmlComponentInfo* pMockLink;
@@ -125,10 +121,6 @@ QVariantList &QGCCorePlugin::settingsPages()
                                            QUrl::fromUserInput("qrc:/qml/OfflineMap.qml"),
                                            QUrl::fromUserInput("qrc:/res/waves.svg"));
         _p->settingsList.append(QVariant::fromValue((QmlComponentInfo*)_p->pOfflineMaps));
-        _p->pMAVLink = new QmlComponentInfo(tr("MAVLink"),
-                                       QUrl::fromUserInput("qrc:/qml/MavlinkSettings.qml"),
-                                       QUrl::fromUserInput("qrc:/res/waves.svg"));
-        _p->settingsList.append(QVariant::fromValue((QmlComponentInfo*)_p->pMAVLink));
         _p->pConsole = new QmlComponentInfo(tr("Console"),
                                        QUrl::fromUserInput("qrc:/qml/QGroundControl/Controls/AppMessages.qml"));
         _p->settingsList.append(QVariant::fromValue((QmlComponentInfo*)_p->pConsole));

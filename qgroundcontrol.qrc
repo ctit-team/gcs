@@ -40,7 +40,6 @@
         <file alias="MainWindowHybrid.qml">src/ui/MainWindowHybrid.qml</file>
         <file alias="MainWindowInner.qml">src/ui/MainWindowInner.qml</file>
         <file alias="MainWindowNative.qml">src/ui/MainWindowNative.qml</file>
-        <file alias="MavlinkSettings.qml">src/ui/preferences/MavlinkSettings.qml</file>
         <file alias="PlanView.qml">src/PlanView/PlanView.qml</file>
         <file alias="MockLink.qml">src/ui/preferences/MockLink.qml</file>
         <file alias="MockLinkSettings.qml">src/ui/preferences/MockLinkSettings.qml</file>
