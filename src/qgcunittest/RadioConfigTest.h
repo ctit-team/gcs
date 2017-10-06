@@ -1,15 +1,5 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-#ifndef RadioConfigTest_H
-#define RadioConfigTest_H
+#ifndef RADIOCONFIGTEST_H
+#define RADIOCONFIGTEST_H
 
 #include "UnitTest.h"
 #include "MockLink.h"
@@ -17,12 +7,6 @@
 #include "RadioComponentController.h"
 #include "QGCLoggingCategory.h"
 #include "AutoPilotPlugin.h"
-#include "QGCQmlWidgetHolder.h"
-
-/// @file
-///     @brief Radio Config unit test
-///
-///     @author Don Gagne <don@thegagnes.com>
 
 Q_DECLARE_LOGGING_CATEGORY(RadioConfigTestLog)
 
@@ -86,8 +70,6 @@ private:
     void _validateParameters(void);
     
     AutoPilotPlugin*    _autopilot;
-    
-    QGCQmlWidgetHolder* _calWidget;
     
     enum {
         nextButtonMask =        1 << 0,

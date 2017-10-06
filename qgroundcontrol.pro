@@ -541,7 +541,6 @@ HEADERS += \
     src/QGCPalette.h \
     src/QGCQGeoCoordinate.h \
     src/QGCQmlWidgetHolder.h \
-    src/QGCQuickWidget.h \
     src/QGCTemporaryFile.h \
     src/QGCToolbox.h \
     src/QmlControls/AppMessages.h \
@@ -724,7 +723,6 @@ SOURCES += \
     src/QGCPalette.cc \
     src/QGCQGeoCoordinate.cc \
     src/QGCQmlWidgetHolder.cpp \
-    src/QGCQuickWidget.cc \
     src/QGCTemporaryFile.cc \
     src/QGCToolbox.cc \
     src/QmlControls/AppMessages.cc \

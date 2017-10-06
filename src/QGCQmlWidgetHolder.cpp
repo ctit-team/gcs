@@ -1,68 +1,36 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-/// @file
-///     @author Don Gagne <don@thegagnes.com>
-
 #include "QGCQmlWidgetHolder.h"
+#include "ui_QGCQmlWidgetHolder.h"
 
-QGCQmlWidgetHolder::QGCQmlWidgetHolder(const QString& title, QAction* action, QWidget *parent) :
-    QGCDockWidget(title, action, parent)
+#include "QGCApplication.h"
+#include "QmlControls/AppMessages.h"
+#include "QmlControls/QGCImageProvider.h"
+
+#include <QQuickImageProvider>
+
+QGCQmlWidgetHolder::QGCQmlWidgetHolder(QWidget *parent) :
+    QGCDockWidget(QString(), nullptr, parent),
+    ui(new Ui::QGCQmlWidgetHolder)
 {
-    _ui.setupUi(this);
+    ui->setupUi(this);
 
     layout()->setContentsMargins(0,0,0,0);
 
-    if (action) {
-        setWindowTitle(title);
-    }
-    setResizeMode(QQuickWidget::SizeRootObjectToView);
+    ui->qml->setAttribute(Qt::WA_AcceptTouchEvents);
+    ui->qml->rootContext()->engine()->addImportPath("qrc:/qml");
+    ui->qml->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
+    ui->qml->engine()->addImageProvider(QLatin1String("QGCImages"), dynamic_cast<QQuickImageProvider *>(qgcApp()->toolbox()->imageProvider()));
+    ui->qml->rootContext()->setContextProperty("controller", parent);
+    ui->qml->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
+    ui->qml->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    ui->qml->setSource(QUrl::fromUserInput("qrc:qml/MainWindowHybrid.qml"));
 }
 
 QGCQmlWidgetHolder::~QGCQmlWidgetHolder()
 {
-
-}
-
-void QGCQmlWidgetHolder::setAutoPilot(AutoPilotPlugin* autoPilot)
-{
-    setContextPropertyObject("autopilot", autoPilot);
-}
-
-bool QGCQmlWidgetHolder::setSource(const QUrl& qmlUrl)
-{
-    return _ui.qmlWidget->setSource(qmlUrl);
-}
-
-void QGCQmlWidgetHolder::setContextPropertyObject(const QString& name, QObject* object)
-{
-    _ui.qmlWidget->rootContext()->setContextProperty(name, object);
-}
-
-QQmlContext* QGCQmlWidgetHolder::getRootContext(void)
-{
-    return _ui.qmlWidget->rootContext();
+    delete ui;
 }
 
 QQuickItem* QGCQmlWidgetHolder::getRootObject(void)
 {
-    return _ui.qmlWidget->rootObject();
-}
-
-QQmlEngine*	QGCQmlWidgetHolder::getEngine()
-{
-    return _ui.qmlWidget->engine();
-}
-
-
-void QGCQmlWidgetHolder::setResizeMode(QQuickWidget::ResizeMode resizeMode)
-{
-    _ui.qmlWidget->setResizeMode(resizeMode);
+    return ui->qml->rootObject();
 }

@@ -1,32 +1,12 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-/**
- * @file
- *   @brief Definition of class MainWindow
- *   @author Lorenz Meier <mavteam@student.ethz.ch>
- *
- */
-
-#ifndef _MAINWINDOW_H_
-#define _MAINWINDOW_H_
-
-#ifdef __mobile__
-#error Should not be include in mobile build
-#endif
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
 #include <QStatusBar>
 #include <QStackedWidget>
 #include <QSettings>
 #include <QList>
+#include <QVBoxLayout>
 
 #include "LinkManager.h"
 #include "LinkInterface.h"
@@ -184,4 +164,4 @@ private:
     QString _getWindowGeometryKey();
 };
 
-#endif /* _MAINWINDOW_H_ */
+#endif /* MAINWINDOW_H */

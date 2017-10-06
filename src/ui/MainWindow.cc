@@ -115,18 +115,11 @@ MainWindow::MainWindow()
     _centralLayout->setContentsMargins(0, 0, 0, 0);
     centralWidget()->setLayout(_centralLayout);
 
-    _mainQmlWidgetHolder = new QGCQmlWidgetHolder(QString(), NULL, this);
+    _mainQmlWidgetHolder = new QGCQmlWidgetHolder(this);
     _centralLayout->addWidget(_mainQmlWidgetHolder);
     _mainQmlWidgetHolder->setVisible(true);
 
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
-    _mainQmlWidgetHolder->setContextPropertyObject("controller", this);
-    _mainQmlWidgetHolder->setContextPropertyObject("debugMessageModel", AppMessages::getModel());
-    _mainQmlWidgetHolder->setSource(QUrl::fromUserInput("qrc:qml/MainWindowHybrid.qml"));
-
-    // Image provider
-    QQuickImageProvider* pImgProvider = dynamic_cast<QQuickImageProvider*>(qgcApp()->toolbox()->imageProvider());
-    _mainQmlWidgetHolder->getEngine()->addImageProvider(QLatin1String("QGCImages"), pImgProvider);
 
     // Set dock options
     setDockOptions(0);

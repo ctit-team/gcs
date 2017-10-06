@@ -1,16 +1,3 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-/// @file
-///     @author Don Gagne <don@thegagnes.com>
-
 #include "FactSystemTestBase.h"
 #include "LinkManager.h"
 #ifdef QT_DEBUG
@@ -18,15 +5,14 @@
 #endif
 #include "MultiVehicleManager.h"
 #include "QGCApplication.h"
-#include "QGCQuickWidget.h"
 #include "ParameterManager.h"
+
+#include "../QGCApplication.h"
 
 #include <QQuickItem>
 
-/// FactSystem Unit Test
 FactSystemTestBase::FactSystemTestBase(void)
 {
-
 }
 
 void FactSystemTestBase::_init(MAV_AUTOPILOT autopilot)
@@ -69,11 +55,7 @@ void FactSystemTestBase::_parameter_specific_component_id_test(void)
 /// Test that QML can reference a Fact
 void FactSystemTestBase::_qml_test(void)
 {
-    QGCQuickWidget* widget = new QGCQuickWidget;
-
-    widget->setAutoPilot(_plugin);
-
-    widget->setSource(QUrl::fromUserInput("qrc:unittest/FactSystemTest.qml"));
+    auto widget = createQuickWidget();
 
     QQuickItem* rootObject = widget->rootObject();
     QObject* control = rootObject->findChild<QObject*>("testControl");
@@ -88,11 +70,7 @@ void FactSystemTestBase::_qml_test(void)
 /// Test QML getting an updated Fact value
 void FactSystemTestBase::_qmlUpdate_test(void)
 {
-    QGCQuickWidget* widget = new QGCQuickWidget;
-
-    widget->setAutoPilot(_plugin);
-
-    widget->setSource(QUrl::fromUserInput("qrc:unittest/FactSystemTest.qml"));
+    auto widget = createQuickWidget();
 
     // Change the value
 
@@ -111,3 +89,17 @@ void FactSystemTestBase::_qmlUpdate_test(void)
     delete widget;
 }
 
+QQuickWidget *FactSystemTestBase::createQuickWidget()
+{
+    auto widget = new QQuickWidget;
+
+    widget->setAttribute(Qt::WA_AcceptTouchEvents);
+
+    widget->rootContext()->engine()->addImportPath("qrc:/qml");
+    widget->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
+    widget->rootContext()->setContextProperty("autopilot", _plugin);
+
+    widget->setSource(QUrl::fromUserInput("qrc:unittest/FactSystemTest.qml"));
+
+    return widget;
+}

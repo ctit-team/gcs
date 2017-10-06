@@ -1,13 +1,3 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
 #include "RadioConfigTest.h"
 #include "RadioComponentController.h"
 #include "MultiVehicleManager.h"
@@ -17,10 +7,8 @@
 #include "APM/APMRadioComponent.h"
 #include "PX4RadioComponent.h"
 
-/// @file
-///     @brief QRadioComponentController Widget unit test
-///
-///     @author Don Gagne <don@thegagnes.com>
+#include <QLayout>
+#include <QQuickWidget>
 
 QGC_LOGGING_CATEGORY(RadioConfigTestLog, "RadioConfigTestLog")
 
@@ -182,7 +170,6 @@ const struct RadioConfigTest::ChannelSettings RadioConfigTest::_rgChannelSetting
 };
 
 RadioConfigTest::RadioConfigTest(void) :
-    _calWidget(NULL),
     _controller(NULL)
 {
     
@@ -200,10 +187,16 @@ void RadioConfigTest::_init(MAV_AUTOPILOT firmwareType)
     QTest::qWait(500);
     
     // This will instatiate the widget with an active uas with ready parameters
-    _calWidget = new QGCQmlWidgetHolder(QString(), NULL);
-    _calWidget->resize(600, 600);
-    Q_CHECK_PTR(_calWidget);
-    _calWidget->setAutoPilot(_autopilot);
+    QQuickWidget widget;
+
+    widget.setAttribute(Qt::WA_AcceptTouchEvents);
+    widget.layout()->setContentsMargins(0,0,0,0);
+    widget.setResizeMode(QQuickWidget::SizeRootObjectToView);
+    widget.resize(600, 600);
+
+    widget.rootContext()->engine()->addImportPath("qrc:/qml");
+    widget.rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
+    widget.rootContext()->setContextProperty("autopilot", _autopilot);
 
     // Find the radio component
     QObject* vehicleComponent = NULL;
@@ -224,8 +217,8 @@ void RadioConfigTest::_init(MAV_AUTOPILOT firmwareType)
     }
     Q_CHECK_PTR(vehicleComponent);
 
-    _calWidget->setContextPropertyObject("vehicleComponent", vehicleComponent);
-    _calWidget->setSource(QUrl::fromUserInput("qrc:/qml/RadioComponent.qml"));
+    widget.rootContext()->setContextProperty("vehicleComponent", vehicleComponent);
+    widget.setSource(QUrl::fromUserInput("qrc:/qml/RadioComponent.qml"));
     
     // Nasty hack to get to controller
     _controller = RadioComponentController::_unitTestController;
@@ -243,9 +236,6 @@ void RadioConfigTest::_init(MAV_AUTOPILOT firmwareType)
 
 void RadioConfigTest::cleanup(void)
 {
-    Q_ASSERT(_calWidget);
-    delete _calWidget;
-    
     // Disconnecting the link will prompt for log file save
     setExpectedFileDialog(getSaveFileName, QStringList());
     
