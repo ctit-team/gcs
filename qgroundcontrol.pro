@@ -365,7 +365,7 @@ INCLUDEPATH += \
 
 FORMS += \
     src/ui/MainWindow.ui \
-    src/QGCQmlWidgetHolder.ui \
+    src/ui/MainContent.ui
 
 !MobileBuild {
 FORMS += \
@@ -391,13 +391,15 @@ HEADERS += \
     src/api/QGCCorePlugin.h \
     src/api/QGCOptions.h \
     src/api/QmlComponentInfo.h \
-    src/ui/batterystatus.h
+    src/ui/batterystatus.h \
+    src/ui/MainContent.h
 
 SOURCES += \
     src/api/QGCCorePlugin.cc \
     src/api/QGCOptions.cc \
     src/api/QmlComponentInfo.cc \
-    src/ui/batterystatus.cpp
+    src/ui/batterystatus.cpp \
+    src/ui/MainContent.cpp
 
 #
 # Unit Test specific configuration goes here (requires full debug build with all plugins)
@@ -540,7 +542,6 @@ HEADERS += \
     src/QGCMapPalette.h \
     src/QGCPalette.h \
     src/QGCQGeoCoordinate.h \
-    src/QGCQmlWidgetHolder.h \
     src/QGCTemporaryFile.h \
     src/QGCToolbox.h \
     src/QmlControls/AppMessages.h \
@@ -722,7 +723,6 @@ SOURCES += \
     src/QGCMapPalette.cc \
     src/QGCPalette.cc \
     src/QGCQGeoCoordinate.cc \
-    src/QGCQmlWidgetHolder.cpp \
     src/QGCTemporaryFile.cc \
     src/QGCToolbox.cc \
     src/QmlControls/AppMessages.cc \

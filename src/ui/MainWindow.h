@@ -1,5 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
+
+#include "MainContent.h"
 
 #include <QMainWindow>
 #include <QStatusBar>
@@ -17,7 +18,6 @@
 #include "MAVLinkDecoder.h"
 #include "Vehicle.h"
 #include "QGCDockWidget.h"
-#include "QGCQmlWidgetHolder.h"
 
 #include "ui_MainWindow.h"
 
@@ -157,11 +157,9 @@ private:
     QVBoxLayout*            _centralLayout;
     Ui::MainWindow          _ui;
 
-    QGCQmlWidgetHolder*     _mainQmlWidgetHolder;
+    MainContent *content;
 
     bool    _forceClose;
 
     QString _getWindowGeometryKey();
 };
-
-#endif /* MAINWINDOW_H */

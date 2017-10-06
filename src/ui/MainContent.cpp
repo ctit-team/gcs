@@ -1,5 +1,5 @@
-#include "QGCQmlWidgetHolder.h"
-#include "ui_QGCQmlWidgetHolder.h"
+#include "MainContent.h"
+#include "ui_MainContent.h"
 
 #include "QGCApplication.h"
 #include "QmlControls/AppMessages.h"
@@ -7,9 +7,9 @@
 
 #include <QQuickImageProvider>
 
-QGCQmlWidgetHolder::QGCQmlWidgetHolder(QWidget *parent) :
+MainContent::MainContent(QWidget *parent) :
     QGCDockWidget(QString(), nullptr, parent),
-    ui(new Ui::QGCQmlWidgetHolder)
+    ui(new Ui::MainContent)
 {
     ui->setupUi(this);
 
@@ -25,12 +25,12 @@ QGCQmlWidgetHolder::QGCQmlWidgetHolder(QWidget *parent) :
     ui->qml->setSource(QUrl::fromUserInput("qrc:qml/MainWindowHybrid.qml"));
 }
 
-QGCQmlWidgetHolder::~QGCQmlWidgetHolder()
+MainContent::~MainContent()
 {
     delete ui;
 }
 
-QQuickItem* QGCQmlWidgetHolder::getRootObject(void)
+QQuickItem *MainContent::getRootObject()
 {
     return ui->qml->rootObject();
 }

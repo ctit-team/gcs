@@ -78,14 +78,11 @@ void MainWindow::deleteInstance(void)
     delete this;
 }
 
-/// @brief Private constructor for MainWindow. MainWindow singleton is only ever created
-///         by MainWindow::_create method. Hence no other code should have access to
-///         constructor.
-MainWindow::MainWindow()
-    : _mavlinkDecoder       (NULL)
-    , _lowPowerMode         (false)
-    , _mainQmlWidgetHolder  (NULL)
-    , _forceClose           (false)
+MainWindow::MainWindow() :
+    _mavlinkDecoder(NULL),
+    _lowPowerMode(false),
+    content(nullptr),
+    _forceClose(false)
 {
     _instance = this;
 
@@ -115,9 +112,9 @@ MainWindow::MainWindow()
     _centralLayout->setContentsMargins(0, 0, 0, 0);
     centralWidget()->setLayout(_centralLayout);
 
-    _mainQmlWidgetHolder = new QGCQmlWidgetHolder(this);
-    _centralLayout->addWidget(_mainQmlWidgetHolder);
-    _mainQmlWidgetHolder->setVisible(true);
+    content = new MainContent(this);
+    _centralLayout->addWidget(content);
+    content->setVisible(true);
 
     QQmlEngine::setObjectOwnership(this, QQmlEngine::CppOwnership);
 
@@ -219,7 +216,7 @@ MainWindow::~MainWindow()
     // This needs to happen before we get into the QWidget dtor
     // otherwise  the QML engine reads freed data and tries to
     // destroy MainWindow a second time.
-    delete _mainQmlWidgetHolder;
+    delete content;
     _instance = NULL;
 }
 
@@ -469,7 +466,7 @@ void MainWindow::_storeVisibleWidgetsSettings(void)
 
 QObject* MainWindow::rootQmlObject(void)
 {
-    return _mainQmlWidgetHolder->getRootObject();
+    return content->getRootObject();
 }
 
 void MainWindow::_showAdvancedUIChanged(bool advanced)
