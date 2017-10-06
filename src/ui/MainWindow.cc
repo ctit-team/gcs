@@ -27,7 +27,6 @@
 #include "QGCCorePlugin.h"
 #include "Linecharts.h"
 #include "QGCUASFileViewMulti.h"
-#include "CustomCommandWidget.h"
 #include "QGCDockWidget.h"
 #include "HILDockWidget.h"
 #include "AppMessages.h"
@@ -42,7 +41,6 @@ const char* MAIN_SETTINGS_GROUP = "QGC_MAINWINDOW";
 #ifndef __mobile__
 enum DockWidgetTypes {
     MAVLINK_INSPECTOR,
-    CUSTOM_COMMAND,
     ONBOARD_FILES,
     DEPRECATED_WIDGET,
     HIL_CONFIG,
@@ -51,7 +49,6 @@ enum DockWidgetTypes {
 
 static const char *rgDockWidgetNames[] = {
     "MAVLink Inspector",
-    "Custom Command",
     "Onboard Files",
     "Deprecated Widget",
     "HIL Config",
@@ -301,9 +298,6 @@ bool MainWindow::_createInnerDockWidget(const QString& widgetName)
         switch(action->data().toInt()) {
             case MAVLINK_INSPECTOR:
                 widget = new QGCMAVLinkInspector(widgetName, action, qgcApp()->toolbox()->mavlinkProtocol(),this);
-                break;
-            case CUSTOM_COMMAND:
-                widget = new CustomCommandWidget(widgetName, action, this);
                 break;
             case ONBOARD_FILES:
                 widget = new QGCUASFileViewMulti(widgetName, action, this);
