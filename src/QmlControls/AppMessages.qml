@@ -133,11 +133,12 @@ QGCView {
             }
 
             QGCButton {
-                id:              writeButton
-                anchors.bottom:  parent.bottom
-                anchors.left:    parent.left
-                onClicked:       writeDialog.openForSave()
-                text:            qsTr("Save App Log")
+                id: writeButton
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                onClicked: writeDialog.openForSave()
+                text: qsTr("Save App Log")
+                visible: false
             }
 
             BusyIndicator {
