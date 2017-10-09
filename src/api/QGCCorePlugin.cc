@@ -176,6 +176,7 @@ bool QGCCorePlugin::overrideSettingsGroupVisibility(QString name)
 
 bool QGCCorePlugin::adjustSettingMetaData(FactMetaData& metaData)
 {
+    Q_UNUSED(metaData);
     return true; // Show setting in ui
 }
 

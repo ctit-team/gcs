@@ -1,12 +1,3 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
 #pragma once
 
 #include <QObject>
@@ -69,7 +60,7 @@ public:
     virtual bool    showSensorCalibrationAirspeed   () const { return true; }
     virtual bool    wifiReliableForCalibration      () const { return false; }
     virtual bool    sensorsHaveFixedOrientation     () const { return false; }
-    virtual bool    showFirmwareUpgrade             () const { return true; }
+    virtual bool    showFirmwareUpgrade             () const { return false; }
     virtual bool    guidedBarShowEmergencyStop      () const { return true; }
     virtual bool    guidedBarShowOrbit              () const { return true; }
     virtual bool    missionWaypointsOnly            () const { return false; }  ///< true: Only allow waypoints and complex items in Plan
