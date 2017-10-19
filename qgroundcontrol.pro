@@ -35,7 +35,6 @@ DebugBuild {
 
 MacBuild {
     QMAKE_INFO_PLIST    = Custom-Info.plist
-    ICON                = $${BASEDIR}/resources/icons/macx.icns
     OTHER_FILES        += Custom-Info.plist
     equals(QT_MAJOR_VERSION, 5) | greaterThan(QT_MINOR_VERSION, 5) {
         LIBS           += -framework ApplicationServices

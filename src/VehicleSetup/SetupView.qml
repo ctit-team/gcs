@@ -292,7 +292,7 @@ Rectangle {
             exclusiveGroup: setupButtonGroup
             setupIndicator: false
             visible: QGroundControl.multiVehicleManager && QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable
-
+            onClicked: QGroundControl.multiVehicleManager.activeVehicle.parameterManager.resetAllParametersToDefaults()
             Layout.fillWidth: true
         }
     }

@@ -1,15 +1,4 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-#ifndef ParameterManager_H
-#define ParameterManager_H
+#pragma once
 
 #include <QObject>
 #include <QMap>
@@ -68,7 +57,7 @@ public:
     /// Request a refresh on all parameters that begin with the specified prefix
     void refreshParametersPrefix(int componentId, const QString& namePrefix);
     
-    void resetAllParametersToDefaults(void);
+    Q_INVOKABLE void resetAllParametersToDefaults(void);
 
     /// Returns true if the specifed parameter exists
     ///     @param componentId Component id or FactSystem::defaultComponentId
@@ -210,5 +199,3 @@ private:
     static const char* _jsonParamNameKey;
     static const char* _jsonParamValueKey;
 };
-
-#endif
