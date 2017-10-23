@@ -58,9 +58,6 @@ iOSBuild {
         CONFIG           += qtquickcompiler
         QMAKE_INFO_PLIST  = $${BASEDIR}/ios/iOSForAppStore-Info.plist
         OTHER_FILES      += $${BASEDIR}/ios/iOSForAppStore-Info.plist
-    } else {
-        QMAKE_INFO_PLIST  = $${BASEDIR}/ios/iOS-Info.plist
-        OTHER_FILES      += $${BASEDIR}/ios/iOS-Info.plist
     }
     #-- TODO: Add iTunesArtwork
 }

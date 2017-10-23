@@ -270,16 +270,6 @@ Rectangle {
             }
         }
 
-        SubMenuButton {
-            text: qsTr("Parameters")
-            exclusiveGroup: setupButtonGroup
-            setupIndicator: false
-            visible: QGroundControl.multiVehicleManager && QGroundControl.multiVehicleManager.parameterReadyVehicleAvailable && _corePlugin.showAdvancedUI
-            onClicked: showParametersPanel()
-
-            Layout.fillWidth: true
-        }
-
         Rectangle {
             color: qgcPal.window
 
