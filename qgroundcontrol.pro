@@ -1,12 +1,3 @@
-# -------------------------------------------------
-# QGroundControl - Micro Air Vehicle Groundstation
-# Please see our website at <http://qgroundcontrol.org>
-# Maintainer:
-# Lorenz Meier <lm@inf.ethz.ch>
-# (c) 2009-2015 QGroundControl Developers
-# License terms set in COPYING.md
-# -------------------------------------------------
-
 exists($${OUT_PWD}/qgroundcontrol.pro) {
     error("You must use shadow build (e.g. mkdir build; cd build; qmake ../qgroundcontrol.pro).")
 }
@@ -19,9 +10,10 @@ message(Qt version $$[QT_VERSION])
 
 include(QGCCommon.pri)
 
-TARGET   = QGroundControl
+TARGET = QGroundControl
 TEMPLATE = app
-QGCROOT  = $$PWD
+QGCROOT = $$PWD
+CONFIG += disable-desktop
 
 DebugBuild {
     DESTDIR  = $${OUT_PWD}/debug
@@ -32,14 +24,6 @@ DebugBuild {
 #
 # OS Specific settings
 #
-
-MacBuild {
-    QMAKE_INFO_PLIST    = Custom-Info.plist
-    OTHER_FILES        += Custom-Info.plist
-    equals(QT_MAJOR_VERSION, 5) | greaterThan(QT_MINOR_VERSION, 5) {
-        LIBS           += -framework ApplicationServices
-    }
-}
 
 iOSBuild {
     BUNDLE.files        = $$files($$PWD/ios/AppIcon*.png) $$PWD/ios/QGCLaunchScreen.xib
