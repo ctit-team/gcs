@@ -11,8 +11,8 @@ MainContent::MainContent(QWidget *parent) :
     QGCDockWidget(QString(), nullptr, parent),
     ui(new Ui::MainContent)
 {
+    // Setup UI.
     ui->setupUi(this);
-
     layout()->setContentsMargins(0,0,0,0);
 
     ui->qml->setAttribute(Qt::WA_AcceptTouchEvents);
@@ -22,7 +22,9 @@ MainContent::MainContent(QWidget *parent) :
     ui->qml->rootContext()->setContextProperty("controller", parent);
     ui->qml->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
     ui->qml->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    ui->qml->setSource(QUrl::fromUserInput("qrc:qml/MainWindowHybrid.qml"));
+
+    // Load QML.
+    ui->qml->setSource(QUrl::fromUserInput("qrc:/qml/MainWindow.qml"));
 }
 
 MainContent::~MainContent()
