@@ -19,7 +19,7 @@
 #include "GAudioOutput.h"
 #include "QGCMAVLinkLogPlayer.h"
 #include "MAVLinkDecoder.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MultiVehicleManager.h"
 #include "LogCompressor.h"
 #include "UAS.h"

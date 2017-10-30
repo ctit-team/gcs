@@ -10,7 +10,7 @@
 #include "FactMetaData.h"
 #include "SettingsManager.h"
 #include "JsonHelper.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QDebug>
 #include <QtMath>

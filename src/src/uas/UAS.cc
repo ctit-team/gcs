@@ -37,7 +37,7 @@
 #include "QGCLoggingCategory.h"
 #include "Vehicle.h"
 #include "Joystick.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 QGC_LOGGING_CATEGORY(UASLog, "UASLog")
 

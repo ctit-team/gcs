@@ -24,7 +24,7 @@
 #include <QUdpSocket>
 #include <QtPlugin>
 #include <QStringListModel>
-#include "QGCApplication.h"
+#include <Application.h>
 #include "AppMessages.h"
 
 #ifndef __mobile__

@@ -10,7 +10,7 @@
 
 #include "LogReplayLink.h"
 #include "LinkManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QFileInfo>
 #include <QtEndian>

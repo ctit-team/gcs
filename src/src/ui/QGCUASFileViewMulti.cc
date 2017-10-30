@@ -3,7 +3,7 @@
 #include "UASInterface.h"
 #include "MultiVehicleManager.h"
 #include "QGCUASFileView.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 QGCUASFileViewMulti::QGCUASFileViewMulti(const QString& title, QAction* action, QWidget *parent) :
     QGCDockWidget(title, action, parent),

@@ -12,7 +12,7 @@
 ///     @author Don Gagne <don@thegagnes.com>
 
 #include "ParameterEditorController.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "ParameterManager.h"
 #include "SettingsManager.h"
 #include "AppSettings.h"

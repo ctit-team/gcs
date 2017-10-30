@@ -11,7 +11,7 @@
 #include "MultiVehicleDockWidget.h"
 #include "ui_MultiVehicleDockWidget.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 MultiVehicleDockWidget::MultiVehicleDockWidget(const QString& title, QAction* action, QWidget *parent)
     : QGCDockWidget(title, action, parent)

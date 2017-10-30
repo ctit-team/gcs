@@ -12,9 +12,9 @@
 ///     @author Don Gagne <don@thegagnes.com>
 
 #include "ParameterManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCLoggingCategory.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "UASMessageHandler.h"
 #include "FirmwarePlugin.h"
 #include "UAS.h"

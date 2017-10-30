@@ -21,7 +21,7 @@
 #include <QDebug>
 
 #include "GAudioOutput.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGC.h"
 #include "SettingsManager.h"
 

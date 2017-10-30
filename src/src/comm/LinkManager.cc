@@ -17,7 +17,7 @@
 #endif
 
 #include "LinkManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "UDPLink.h"
 #include "TCPLink.h"
 #include "SettingsManager.h"

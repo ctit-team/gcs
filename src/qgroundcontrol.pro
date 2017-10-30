@@ -372,14 +372,16 @@ HEADERS += \
     src/api/QGCOptions.h \
     src/api/QmlComponentInfo.h \
     src/ui/batterystatus.h \
-    src/ui/MainContent.h
+    src/ui/MainContent.h \
+    Application.h
 
 SOURCES += \
     src/api/QGCCorePlugin.cc \
     src/api/QGCOptions.cc \
     src/api/QmlComponentInfo.cc \
     src/ui/batterystatus.cpp \
-    src/ui/MainContent.cpp
+    src/ui/MainContent.cpp \
+    Application.cpp
 
 #
 # Unit Test specific configuration goes here (requires full debug build with all plugins)
@@ -512,7 +514,6 @@ HEADERS += \
     src/PositionManager/PositionManager.h \
     src/PositionManager/SimulatedPosition.h \
     src/QGC.h \
-    src/QGCApplication.h \
     src/QGCComboBox.h \
     src/QGCConfig.h \
     src/QGCDockWidget.h \
@@ -694,7 +695,6 @@ SOURCES += \
     src/PositionManager/PositionManager.cpp \
     src/PositionManager/SimulatedPosition.cc \
     src/QGC.cc \
-    src/QGCApplication.cc \
     src/QGCComboBox.cc \
     src/QGCDockWidget.cc \
     src/QGCFileDownload.cc \

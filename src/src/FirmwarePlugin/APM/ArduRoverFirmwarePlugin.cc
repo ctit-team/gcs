@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "ArduRoverFirmwarePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 bool ArduRoverFirmwarePlugin::_remapParamNameIntialized = false;
 FirmwarePlugin::remapParamNameMajorVersionMap_t ArduRoverFirmwarePlugin::_remapParamName;

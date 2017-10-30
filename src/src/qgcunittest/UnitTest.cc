@@ -14,7 +14,7 @@
 ///     @author Don Gagne <don@thegagnes.com>
 
 #include "UnitTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MAVLinkProtocol.h"
 #include "MainWindow.h"
 #include "Vehicle.h"

@@ -34,7 +34,7 @@
 #include "LinkManager.h"
 #include "QGCMAVLink.h"
 #include "QGC.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCLoggingCategory.h"
 #include "MultiVehicleManager.h"
 #include "SettingsManager.h"

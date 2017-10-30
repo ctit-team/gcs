@@ -14,7 +14,7 @@
  *   @author Gus Grubba <mavlink@grubba.com>
  */
 
-#include "QGCApplication.h"
+#include <Application.h>
 #include "UASMessageHandler.h"
 #include "MultiVehicleManager.h"
 #include "UAS.h"

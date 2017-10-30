@@ -8,7 +8,7 @@
 #include "QGCMAVLinkLogPlayer.h"
 #include "QGC.h"
 #include "ui_QGCMAVLinkLogPlayer.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 #include "AppSettings.h"
 #include "LinkManager.h"

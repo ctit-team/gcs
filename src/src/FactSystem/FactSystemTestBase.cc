@@ -4,10 +4,10 @@
 #include "MockLink.h"
 #endif
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "ParameterManager.h"
 
-#include "../QGCApplication.h"
+#include <Application.h>
 
 #include <QQuickItem>
 

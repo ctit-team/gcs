@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "MAVLinkLogManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 
 #include <QQmlContext>

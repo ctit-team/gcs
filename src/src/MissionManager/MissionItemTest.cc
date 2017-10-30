@@ -13,7 +13,7 @@
 #include "MultiVehicleManager.h"
 #include "MissionItem.h"
 #include "SimpleMissionItem.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #if 0
 const MissionItemTest::TestCase_t MissionItemTest::_rgTestCases[] = {

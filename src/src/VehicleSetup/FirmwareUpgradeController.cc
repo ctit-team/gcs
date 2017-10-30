@@ -15,7 +15,7 @@
 #include "FirmwareUpgradeController.h"
 #include "Bootloader.h"
 #include "QGCQFileDialog.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCFileDownload.h"
 #include "QGCOptions.h"
 #include "QGCCorePlugin.h"

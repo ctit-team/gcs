@@ -15,7 +15,7 @@
  *   @author Gus Grubba <mavlink@grubba.com>
  *
  */
-#include "QGCApplication.h"
+#include <Application.h>
 #include "AppSettings.h"
 #include "SettingsManager.h"
 

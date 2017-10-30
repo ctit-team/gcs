@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "SurveyMissionItemTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 SurveyMissionItemTest::SurveyMissionItemTest(void)
     : _offlineVehicle(NULL)

@@ -9,7 +9,7 @@
 
 
 #include "ValuesWidgetController.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCCorePlugin.h"
 
 #include <QSettings>

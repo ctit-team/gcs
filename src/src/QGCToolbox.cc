@@ -29,7 +29,7 @@
 #include "QGCCorePlugin.h"
 #include "QGCOptions.h"
 #include "SettingsManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #if defined(QGC_CUSTOM_BUILD)
 #include CUSTOMHEADER

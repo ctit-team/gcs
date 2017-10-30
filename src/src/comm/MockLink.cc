@@ -10,7 +10,7 @@
 
 #include "MockLink.h"
 #include "QGCLoggingCategory.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #ifdef UNITTEST_BUILD
     #include "UnitTest.h"

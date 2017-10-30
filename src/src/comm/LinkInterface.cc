@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "LinkInterface.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 /// mavlink channel to use for this link, as used by mavlink_parse_char. The mavlink channel is only
 /// set into the link when it is added to LinkManager

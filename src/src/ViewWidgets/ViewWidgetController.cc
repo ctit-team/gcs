@@ -11,7 +11,7 @@
 #include "ViewWidgetController.h"
 #include "MultiVehicleManager.h"
 #include "UAS.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 ViewWidgetController::ViewWidgetController(void) :
 	_autopilot(NULL),

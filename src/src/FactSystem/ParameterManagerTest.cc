@@ -10,7 +10,7 @@
 
 #include "ParameterManagerTest.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "ParameterManager.h"
 
 /// Test failure modes which should still lead to param load success

@@ -7,7 +7,7 @@
  *
  ****************************************************************************/
 
-#include "QGCApplication.h"
+#include <Application.h>
 #include "FlightMapSettings.h"
 #include "QGCMapEngine.h"
 #include "AppSettings.h"

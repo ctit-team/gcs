@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "SyslinkComponentController.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "UAS.h"
 #include "ParameterManager.h"
 

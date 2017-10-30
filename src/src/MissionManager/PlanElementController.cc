@@ -9,7 +9,7 @@
 
 #include "PlanElementController.h"
 #include "PlanMasterController.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MultiVehicleManager.h"
 #include "SettingsManager.h"
 #include "AppSettings.h"

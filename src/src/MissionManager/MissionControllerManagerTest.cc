@@ -11,7 +11,7 @@
 #include "MissionControllerManagerTest.h"
 #include "LinkManager.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 MissionControllerManagerTest::MissionControllerManagerTest(void)
 {

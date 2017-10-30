@@ -9,7 +9,7 @@
 
 #include "VisualMissionItemTest.h"
 #include "SimpleMissionItem.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 VisualMissionItemTest::VisualMissionItemTest(void)
     : _offlineVehicle(NULL)

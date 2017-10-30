@@ -9,7 +9,7 @@
 
 #include "GuidedSettings.h"
 #include "QGCPalette.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QQmlEngine>
 #include <QtQml>

@@ -12,7 +12,7 @@
 #include "MultiVehicleManager.h"
 #include "SimpleMissionItem.h"
 #include "MissionSettingsItem.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 #include "AppSettings.h"
 

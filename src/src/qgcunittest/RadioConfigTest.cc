@@ -1,7 +1,7 @@
 #include "RadioConfigTest.h"
 #include "RadioComponentController.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "PX4/PX4AutoPilotPlugin.h"
 #include "APM/APMAutoPilotPlugin.h"
 #include "APM/APMRadioComponent.h"

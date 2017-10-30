@@ -11,7 +11,7 @@
 #include "AutoPilotPlugin.h"
 #include "MAVLinkProtocol.h"
 #include "UAS.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "FollowMe.h"
 #include "QGroundControlQmlGlobal.h"
 #include "ParameterManager.h"

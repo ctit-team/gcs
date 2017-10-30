@@ -13,7 +13,7 @@
 ///     @author Don Gagne <don@thegagnes.com
 
 #include "RadioComponentController.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QSettings>
 

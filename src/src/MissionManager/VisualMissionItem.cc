@@ -13,7 +13,7 @@
 
 #include "VisualMissionItem.h"
 #include "FirmwarePluginManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "JsonHelper.h"
 #include "Terrain.h"
 

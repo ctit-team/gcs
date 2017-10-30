@@ -1,7 +1,8 @@
 #include "MainContent.h"
 #include "ui_MainContent.h"
 
-#include "QGCApplication.h"
+#include <Application.h>
+
 #include "QmlControls/AppMessages.h"
 #include "QmlControls/QGCImageProvider.h"
 

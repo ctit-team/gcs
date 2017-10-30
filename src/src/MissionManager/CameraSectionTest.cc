@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "CameraSectionTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MissionCommandTree.h"
 #include "MissionCommandUIInfo.h"
 

@@ -16,7 +16,7 @@
 
 //#define DEBUG_GOOGLE_MAPS
 
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCMapEngine.h"
 #include "AppSettings.h"
 #include "SettingsManager.h"

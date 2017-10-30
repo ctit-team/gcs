@@ -16,7 +16,7 @@
  */
 
 #include "LogCompressor.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QFile>
 #include <QFileInfo>

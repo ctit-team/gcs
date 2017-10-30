@@ -16,7 +16,7 @@
 
 #include "VideoReceiver.h"
 #include "SettingsManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "VideoManager.h"
 
 #include <QDebug>

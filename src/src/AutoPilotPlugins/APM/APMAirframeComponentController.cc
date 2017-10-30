@@ -15,7 +15,7 @@
 #include "APMAirframeComponentAirframes.h"
 #include "QGCMAVLink.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCFileDownload.h"
 #include "ParameterManager.h"
 

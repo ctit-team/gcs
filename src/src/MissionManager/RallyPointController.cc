@@ -16,7 +16,7 @@
 #include "Vehicle.h"
 #include "FirmwarePlugin.h"
 #include "MAVLinkProtocol.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "ParameterManager.h"
 #include "JsonHelper.h"
 #include "SimpleMissionItem.h"

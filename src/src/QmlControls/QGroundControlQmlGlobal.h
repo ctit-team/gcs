@@ -15,7 +15,7 @@
 #define QGroundControlQmlGlobal_H
 
 #include "QGCToolbox.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "LinkManager.h"
 #include "SettingsFact.h"
 #include "FactMetaData.h"

@@ -16,7 +16,7 @@
 #include "QGCLoggingCategory.h"
 #include "JsonHelper.h"
 #include "QGCMAVLink.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "FirmwarePlugin.h"
 #include "ParameterManager.h"
 #include "Bootloader.h"

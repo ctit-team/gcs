@@ -13,7 +13,7 @@
 
 #include "SimpleMissionItem.h"
 #include "FirmwarePluginManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "JsonHelper.h"
 #include "MissionCommandTree.h"
 #include "MissionCommandUIInfo.h"

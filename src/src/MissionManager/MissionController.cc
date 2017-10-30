@@ -14,7 +14,7 @@
 #include "MissionManager.h"
 #include "CoordinateVector.h"
 #include "FirmwarePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SimpleMissionItem.h"
 #include "SurveyMissionItem.h"
 #include "FixedWingLandingComplexItem.h"

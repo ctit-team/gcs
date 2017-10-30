@@ -14,7 +14,7 @@
 #ifndef ScreenToolsController_H
 #define ScreenToolsController_H
 
-#include "QGCApplication.h"
+#include <Application.h>
 #include <QQuickItem>
 #include <QCursor>
 

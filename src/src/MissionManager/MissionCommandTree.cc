@@ -13,7 +13,7 @@
 #include "FactMetaData.h"
 #include "Vehicle.h"
 #include "FirmwarePluginManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGroundControlQmlGlobal.h"
 #include "MissionCommandUIInfo.h"
 #include "MissionCommandList.h"

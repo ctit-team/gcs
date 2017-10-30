@@ -10,7 +10,7 @@
 
 #include "SettingsFact.h"
 #include "QGCCorePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QSettings>
 

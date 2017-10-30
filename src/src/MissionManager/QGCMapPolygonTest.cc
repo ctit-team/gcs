@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "QGCMapPolygonTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCQGeoCoordinate.h"
 
 QGCMapPolygonTest::QGCMapPolygonTest(void)

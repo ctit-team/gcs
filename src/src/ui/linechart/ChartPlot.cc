@@ -1,5 +1,5 @@
 #include "ChartPlot.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 
 const QColor ChartPlot::baseColors[numColors] = {

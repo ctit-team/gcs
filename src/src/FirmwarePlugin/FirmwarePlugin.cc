@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "FirmwarePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "Generic/GenericAutoPilotPlugin.h"
 #include "CameraMetaData.h"
 #include "SettingsManager.h"

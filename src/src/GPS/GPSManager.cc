@@ -10,7 +10,7 @@
 
 #include "GPSManager.h"
 #include "QGCLoggingCategory.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 #include "RTKSettings.h"
 

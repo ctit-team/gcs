@@ -22,7 +22,7 @@
 #include "RallyPointManager.h"
 #include "CoordinateVector.h"
 #include "ParameterManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCImageProvider.h"
 #include "GAudioOutput.h"
 #include "FollowMe.h"

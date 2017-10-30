@@ -7,7 +7,7 @@
  *
  ****************************************************************************/
 
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCCorePlugin.h"
 #include "QGCOptions.h"
 #include "QmlComponentInfo.h"

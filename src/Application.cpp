@@ -1,20 +1,4 @@
-/****************************************************************************
- *
- *   (c) 2009-2016 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
-
-/**
- * @file
- *   @brief Implementation of class QGCApplication
- *
- *   @author Lorenz Meier <mavteam@student.ethz.ch>
- *
- */
+#include "Application.h"
 
 #include <QFile>
 #include <QFlags>
@@ -34,7 +18,6 @@
 #include "VideoStreaming.h"
 
 #include "QGC.h"
-#include "QGCApplication.h"
 #include "GAudioOutput.h"
 #include "CmdLineOptParser.h"
 #include "UDPLink.h"

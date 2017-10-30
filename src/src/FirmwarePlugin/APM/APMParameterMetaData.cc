@@ -9,7 +9,7 @@
 
 
 #include "APMParameterMetaData.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCLoggingCategory.h"
 
 #include <QFile>

@@ -1,6 +1,6 @@
 #include "JoystickAndroid.h"
 
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QQmlEngine>
 

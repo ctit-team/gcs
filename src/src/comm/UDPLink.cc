@@ -27,7 +27,7 @@
 
 #include "UDPLink.h"
 #include "QGC.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 #include "AutoConnectSettings.h"
 

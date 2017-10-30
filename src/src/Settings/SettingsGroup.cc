@@ -9,7 +9,7 @@
 
 #include "SettingsGroup.h"
 #include "QGCCorePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 SettingsGroup::SettingsGroup(const QString& name, const QString& settingsGroup, QObject* parent)
     : QObject(parent)

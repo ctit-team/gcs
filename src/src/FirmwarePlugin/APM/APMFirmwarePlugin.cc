@@ -10,7 +10,7 @@
 #include "APMFirmwarePlugin.h"
 #include "APMAutoPilotPlugin.h"
 #include "QGCMAVLink.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "APMFlightModesComponentController.h"
 #include "APMAirframeComponentController.h"
 #include "APMSensorsComponentController.h"

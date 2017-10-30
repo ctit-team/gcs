@@ -15,7 +15,7 @@
 #include "UAS.h"
 #include "FirmwarePlugin/PX4/PX4ParameterMetaData.h"  // FIXME: Hack
 #include "FirmwarePlugin/PX4/PX4FirmwarePlugin.h"  // FIXME: Hack
-#include "QGCApplication.h"
+#include <Application.h>
 #include "FlightModesComponent.h"
 #include "PX4RadioComponent.h"
 #include "PX4TuningComponent.h"

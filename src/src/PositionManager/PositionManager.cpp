@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "PositionManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGCCorePlugin.h"
 
 QGCPositionManager::QGCPositionManager(QGCApplication* app, QGCToolbox* toolbox)

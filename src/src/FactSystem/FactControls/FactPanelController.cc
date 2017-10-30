@@ -10,7 +10,7 @@
 #include "FactPanelController.h"
 #include "MultiVehicleManager.h"
 #include "UAS.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "ParameterManager.h"
 
 #include <QQmlEngine>

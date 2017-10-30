@@ -8,7 +8,7 @@
  ****************************************************************************/
 
 #include "MissionCommandTreeTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MissionCommandUIInfo.h"
 #include "MissionCommandList.h"
 #include "FactMetaData.h"

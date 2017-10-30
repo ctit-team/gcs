@@ -12,7 +12,7 @@
 ///     @author Don Gagne <don@thegagnes.com>
 
 #include "ArduCopterFirmwarePlugin.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "MissionManager.h"
 #include "ParameterManager.h"
 

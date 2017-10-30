@@ -15,7 +15,7 @@
 
 #include "LinkManagerTest.h"
 #include "MockLink.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 LinkManagerTest::LinkManagerTest(void) :
     _linkMgr(NULL),

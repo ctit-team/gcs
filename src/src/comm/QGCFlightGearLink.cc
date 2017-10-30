@@ -32,7 +32,7 @@
 #include "QGC.h"
 #include "QGCQFileDialog.h"
 #include "QGCMessageBox.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "Vehicle.h"
 #include "UAS.h"
 #include "QGroundControlQmlGlobal.h"

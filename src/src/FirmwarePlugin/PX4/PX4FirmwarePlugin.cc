@@ -13,7 +13,7 @@
 
 #include "PX4FirmwarePlugin.h"
 #include "PX4ParameterMetaData.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "PX4AutoPilotPlugin.h"
 #include "PX4AdvancedFlightModesController.h"
 #include "PX4SimpleFlightModesController.h"

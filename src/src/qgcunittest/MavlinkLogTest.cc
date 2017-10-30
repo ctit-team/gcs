@@ -17,7 +17,7 @@
 #include "MainWindow.h"
 #include "MockLink.h"
 #include "QGCTemporaryFile.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "UAS.h"
 #include "MultiVehicleManager.h"
 

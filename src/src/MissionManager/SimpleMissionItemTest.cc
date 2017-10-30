@@ -9,7 +9,7 @@
 
 
 #include "SimpleMissionItemTest.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "QGroundControlQmlGlobal.h"
 #include "SettingsManager.h"
 

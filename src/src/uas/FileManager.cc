@@ -13,7 +13,7 @@
 #include "MAVLinkProtocol.h"
 #include "MainWindow.h"
 #include "Vehicle.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include <QFile>
 #include <QDir>

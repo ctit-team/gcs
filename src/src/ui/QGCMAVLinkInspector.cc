@@ -2,7 +2,7 @@
 #include "QGCMAVLinkInspector.h"
 #include "MultiVehicleManager.h"
 #include "UAS.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 #include "ui_QGCMAVLinkInspector.h"
 

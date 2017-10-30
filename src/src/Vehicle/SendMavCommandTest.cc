@@ -10,7 +10,7 @@
 
 #include "SendMavCommandTest.h"
 #include "MultiVehicleManager.h"
-#include "QGCApplication.h"
+#include <Application.h>
 
 void SendMavCommandTest::_noFailure(void)
 {

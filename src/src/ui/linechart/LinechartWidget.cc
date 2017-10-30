@@ -39,7 +39,7 @@
 #include "MG.h"
 #include "QGCQFileDialog.h"
 #include "QGCMessageBox.h"
-#include "QGCApplication.h"
+#include <Application.h>
 #include "SettingsManager.h"
 
 LinechartWidget::LinechartWidget(int systemid, QWidget *parent) : QWidget(parent),
