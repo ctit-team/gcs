@@ -96,11 +96,6 @@ public slots:
     /// Check that the telemetry save path is set correctly
     void checkTelemetrySavePathOnMainThread(void);
 
-signals:
-    /// This is connected to MAVLinkProtocol::checkForLostLogFiles. We signal this to ourselves to call the slot
-    /// on the MAVLinkProtocol thread;
-    void checkForLostLogFiles(void);
-
 public:
     // Although public, these methods are internal and should only be called by UnitTest code
 
@@ -127,6 +122,12 @@ public:
     void _shutdown(void);
 
     bool _checkTelemetrySavePath(bool useMessageBox);
+
+signals:
+    /// This is connected to MAVLinkProtocol::checkForLostLogFiles. We signal this to ourselves to call the slot
+    /// on the MAVLinkProtocol thread;
+    void checkForLostLogFiles(void);
+    void receivedMessage(const QString& message);
 
 private slots:
     void _missingParamsDisplay(void);

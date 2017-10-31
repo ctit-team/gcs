@@ -603,21 +603,7 @@ void QGCApplication::showMessage(const QString& message)
         return;
     }
 
-    QObject* rootQmlObject = _rootQmlObject();
-
-    if (rootQmlObject) {
-        QVariant varReturn;
-        QVariant varMessage = QVariant::fromValue(message);
-
-        QMetaObject::invokeMethod(_rootQmlObject(), "showMessage", Q_RETURN_ARG(QVariant, varReturn), Q_ARG(QVariant, varMessage));
-#ifndef __mobile__
-    } else if (runningUnitTests()){
-        // Unit test can run without a main window which will lead to no root qml object. Use QGCMessageBox instead
-        QGCMessageBox::information("Unit Test", message);
-#endif
-    } else {
-        qWarning() << "Internal error";
-    }
+    emit receivedMessage(message);
 }
 
 void QGCApplication::showSetupView(void)

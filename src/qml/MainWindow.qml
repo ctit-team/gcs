@@ -13,9 +13,6 @@ import QGroundControl.ScreenTools 1.0
 
 Item {
     id: mainWindow
-    onReallyClose: controller.reallyClose()
-
-    signal reallyClose
 
     QGCPalette { id: qgcPal; colorGroupEnabled: true }
 
@@ -135,6 +132,13 @@ Item {
         delayedWindowCloseTimer.start()
     }
 
+    Connections {
+        target: app
+        onReceivedMessage: {
+            showMessage(message)
+        }
+    }
+
     MessageDialog {
         id:                 unsavedMissionCloseDialog
         title:              qsTr("%1 close").arg(QGroundControl.appName)
@@ -179,7 +183,7 @@ Item {
         repeat:     false
 
         onTriggered: {
-            mainWindow.reallyClose()
+            controller.reallyClose()
         }
     }
 

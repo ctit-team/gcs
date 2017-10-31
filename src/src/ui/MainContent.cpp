@@ -14,14 +14,17 @@ MainContent::MainContent(QWidget *parent) :
 {
     // Setup UI.
     ui->setupUi(this);
-    layout()->setContentsMargins(0,0,0,0);
+    layout()->setContentsMargins(0, 0, 0, 0);
+
+    // Register properties.
+    ui->qml->rootContext()->setContextProperty("app", qgcApp());
+    ui->qml->rootContext()->setContextProperty("controller", parent);
+    ui->qml->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
+    ui->qml->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
 
     ui->qml->setAttribute(Qt::WA_AcceptTouchEvents);
     ui->qml->rootContext()->engine()->addImportPath("qrc:/qml");
-    ui->qml->rootContext()->setContextProperty("joystickManager", qgcApp()->toolbox()->joystickManager());
     ui->qml->engine()->addImageProvider(QLatin1String("QGCImages"), dynamic_cast<QQuickImageProvider *>(qgcApp()->toolbox()->imageProvider()));
-    ui->qml->rootContext()->setContextProperty("controller", parent);
-    ui->qml->rootContext()->setContextProperty("debugMessageModel", AppMessages::getModel());
     ui->qml->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
     // Load QML.
