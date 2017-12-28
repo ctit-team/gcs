@@ -190,6 +190,7 @@ MainWindow::MainWindow() :
 
     if (!qgcApp()->runningUnitTests()) {
         menuBar()->hide();
+        setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
         show();
     }
 
